@@ -247,7 +247,55 @@ F_{b,\max} = \frac{4M_{\max}}{n D_{bc}} - \frac{N_{\min}}{n}
 
 \subsection{附件与开孔}
 
-裙座侧壁开设：上部通气孔 $\ge \phi 80$ mm（或等面积长圆孔），对称布置，数量不少于 2 个，防止有害气体积聚；底部排液孔 $\ge \phi 20$ mm，不少于 2 个；检修人孔 $\ge \phi 450$ mm，便于人员进入检查基础螺栓。基础环板外径大于裙座外径，厚度 $\ge 20$ mm，地脚螺栓取 M30 $\times$ 400（$n = 8$，均布），详见本条第 \ref{sec:base-ring-conclusion} 小节。
+裙座侧壁开设如下附件孔洞（见表 \ref{tab:skirt-openings}）：
+
+\begin{table}[!htb]
+  \centering
+  \caption{裙座开孔明细}
+  \label{tab:skirt-openings}
+  \small\renewcommand{\arraystretch}{1.2}
+  \setlength{\tabcolsep}{8pt}
+  \begin{tabularx}{\textwidth}{@{}c >{\centering\arraybackslash}X c c c@{}}
+    \toprule
+    \textbf{编号} & \textbf{用途} & \textbf{型式} & \textbf{尺寸 / mm} & \textbf{数量} \\
+    \midrule
+    V1  & 排气孔（上部） & 圆孔            & $\phi 80$        & 2（对称 $180^\circ$） \\
+    V2  & 排气孔（上部） & 长圆孔          & $80 \times 150$  & 2（与 V1 交错 $90^\circ$） \\
+    D1  & 排液孔（底部） & 圆孔            & $\phi 25$        & 2（低位布置） \\
+    A1  & 检查孔         & 圆孔            & $\phi 500$       & 1（正对 M1 人孔方位） \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+排气孔总面积 $\ge 4 \times \pi \times 40^2 \approx 2.0 \times 10^4$ mm²，满足有害气体扩散通风需求。排液孔设于裙座底板低点，确保停车排水彻底。检查孔（$\phi 500$ mm）供运行人员进入裙座内部检查基础螺栓和地脚螺栓座焊缝，其开孔尺寸参照 HG/T 21514—2014 人孔系列的下限值取整。
+
+焊接节点详图编号体系见表 \ref{tab:weld-joint-id}，与 CAD 零部件图中焊接节点标识一一对应。
+
+\begin{table}[!htb]
+  \centering
+  \caption{焊接节点详图编号}
+  \label{tab:weld-joint-id}
+  \small\renewcommand{\arraystretch}{1.2}
+  \setlength{\tabcolsep}{8pt}
+  \begin{tabularx}{\textwidth}{@{}c >{\centering\arraybackslash}X c@{}}
+    \toprule
+    \textbf{节点编号} & \textbf{接头名称} & \textbf{焊接方法} \\
+    \midrule
+    WJ-01 & 筒体纵缝                      & SAW \\
+    WJ-02 & 筒体与上封头环缝               & SAW \\
+    WJ-03 & 筒体与下封头环缝               & SAW \\
+    WJ-04 & 裙座与下封头连接环缝            & SAW \\
+    WJ-05 & 裙座与基础环板角焊缝            & SMAW \\
+    WJ-06 & 接管与壳体全焊透角焊缝（DN100） & GTAW + SMAW \\
+    WJ-07 & 接管与壳体全焊透角焊缝（DN50）  & GTAW + SMAW \\
+    WJ-08 & 接管与壳体角焊缝（DN25/DN40）   & GTAW \\
+    WJ-09 & 法兰与接管对接环缝             & GTAW \\
+    WJ-10 & 人孔接管与筒体全焊透角焊缝      & GTAW + SMAW \\
+    WJ-11 & 基础环板地脚螺栓座筋板焊缝      & SMAW \\
+    WJ-12 & 防涡流挡板与筒体角焊缝          & SMAW \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
 
 裙座外表面涂装：环氧富锌底漆（$\ge 60$ μm）+ 环氧云铁中间漆（$\ge 100$ μm）+ 聚氨酯面漆（$\ge 60$ μm），按 HG/T 20584—2020\cite{hgt20584-2020} 及 HG/T 20580—2020\cite{hgt20580-2020} 附录要求执行。该涂层体系在连云港沿海大气环境中的预期有效防护年限为 $10\sim15$ 年。
 
@@ -259,25 +307,25 @@ F_{b,\max} = \frac{4M_{\max}}{n D_{bc}} - \frac{N_{\min}}{n}
 
 \begin{table}[!htb]
   \centering
-  \caption{接管参数一览}
+  \caption{管口表（代号、DN/PN、连接标准、用途）}
   \label{tab:nozzle-specs}
   \small\renewcommand{\arraystretch}{1.25}
-  \setlength{\tabcolsep}{5pt}
-  \begin{tabularx}{\textwidth}{@{}c>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}Xc>{\centering\arraybackslash}X@{}}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabularx}{\textwidth}{@{}c >{\centering\arraybackslash}X >{\centering\arraybackslash}X c c >{\centering\arraybackslash}X >{\centering\arraybackslash}X c c@{}}
     \toprule
-    \textbf{编号} & \textbf{用途} & \textbf{所在部件} & \textbf{规格 $\phi \times \delta_t$} & \textbf{DN} & \textbf{外伸/内伸 $L_o$/$L_i$ (mm)} \\
+    \textbf{代号} & \textbf{用途} & \textbf{所在部件} & \textbf{DN} & \textbf{PN} & \textbf{接管 $\phi \times \delta_t$ / mm} & \textbf{法兰标准号} & \textbf{$L_o$/$L_i$ / mm} & \textbf{备注} \\
     \midrule
-    N1   & 冷媒进口    & 上封头顶   & $\phi 114.3 \times 6.0$ & 100 & 200 / 0 \\
-    N2   & 氮气补气口  & 上封头     & $\phi 60.3 \times 5.0$  & 50  & 200 / 0 \\
-    N3   & 放空口      & 上封头     & $\phi 60.3 \times 5.0$  & 50  & 200 / 0 \\
-    N4   & 压力表口    & 上封头     & $\phi 33.7 \times 4.0$  & 25  & 150 / 0 \\
-    N5   & 温度计口    & 上封头     & $\phi 48.3 \times 5.0$  & 40  & 250 / 400 \\
-    N6a  & 液位计口(上)& 筒体侧壁  & $\phi 33.7 \times 4.0$  & 25  & 200 / 0 \\
-    N6b  & 液位计口(下)& 筒体侧壁  & $\phi 33.7 \times 4.0$  & 25  & 200 / 0 \\
-    N7   & 压力变送器口 & 筒体侧壁  & $\phi 33.7 \times 4.0$  & 25  & 150 / 0 \\
-    N8   & 冷媒出口    & 下封头底   & $\phi 114.3 \times 6.0$ & 100 & 250 / 0 \\
-    N9   & 排净口      & 下封头底   & $\phi 60.3 \times 5.0$  & 50  & 200 / 0 \\
-    M1   & 人孔        & 筒体侧壁   & $\phi 508 \times 12$     & 500 & 300 / 0 \\
+    N1   & 冷媒进口    & 上封头顶   & 100 & 20 & $\phi 114.3 \times 6.0$ & HG/T 20592 WN100-20 RF & 200 / 0  & —— \\
+    N2   & 氮气补气口  & 上封头     & 50  & 20 & $\phi 60.3 \times 5.0$  & HG/T 20592 WN50-20 RF  & 200 / 0  & —— \\
+    N3   & 放空口      & 上封头     & 50  & 20 & $\phi 60.3 \times 5.0$  & HG/T 20592 WN50-20 RF  & 200 / 0  & —— \\
+    N4   & 压力表口    & 上封头     & 25  & 50 & $\phi 33.7 \times 4.0$  & HG/T 20592 WN25-50 RF  & 150 / 0  & 仪表接口 \\
+    N5   & 温度计口    & 上封头     & 40  & 50 & $\phi 48.3 \times 5.0$  & HG/T 20592 WN40-50 RF  & 250 / 400 & 测温元件插入至 $R/2$ \\
+    N6a  & 液位计口(上)& 筒体侧壁  & 25  & 50 & $\phi 33.7 \times 4.0$  & HG/T 20592 WN25-50 RF  & 200 / 0  & 配对使用 \\
+    N6b  & 液位计口(下)& 筒体侧壁  & 25  & 50 & $\phi 33.7 \times 4.0$  & HG/T 20592 WN25-50 RF  & 200 / 0  & 配对使用 \\
+    N7   & 压力变送器口 & 筒体侧壁  & 25  & 50 & $\phi 33.7 \times 4.0$  & HG/T 20592 WN25-50 RF  & 150 / 0  & 仪表接口 \\
+    N8   & 冷媒出口    & 下封头底   & 100 & 20 & $\phi 114.3 \times 6.0$ & HG/T 20592 WN100-20 RF & 250 / 0  & 设防涡流挡板 \\
+    N9   & 排净口      & 下封头底   & 50  & 20 & $\phi 60.3 \times 5.0$  & HG/T 20592 WN50-20 RF  & 200 / 0  & —— \\
+    M1   & 人孔        & 筒体侧壁   & 600 & 20 & $\phi 610 \times 12$     & HG/T 21515 WN600-20 RF & 300 / 0  & 回转盖式 \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -292,7 +340,18 @@ F_{b,\max} = \frac{4M_{\max}}{n D_{bc}} - \frac{N_{\min}}{n}
 
 \subsection{人孔}
 
-在筒体侧壁开设 DN500 回转盖带颈对焊法兰人孔（M1），按 HG/T 21514—2014 选取\cite{hgt21514-2014}。人孔参数：公称直径 DN500，公称压力 PN20（Class 150），法兰密封面 RF，接管尺寸 $\phi 508 \times 12$，人孔盖为回转盖式。人孔开孔直径为全设备最大开孔（$d = 484$ mm），其补强设计是本章开孔补强校核的核心对象。
+在筒体侧壁开设 DN600 回转盖带颈对焊法兰人孔（M1），按 HG/T 21515—2014《钢制人孔和手孔》选取\cite{hgt21514-2014}。人孔参数：公称直径 DN600，公称压力 PN20（Class 150），法兰密封面 RF，接管尺寸 $\phi 610 \times 12$ mm（外径 $\times$ 壁厚），人孔盖为回转盖式。人孔具体标准件尺寸如下：
+
+\begin{itemize}
+    \item 法兰外径 $D_f = 815$ mm，螺栓孔中心圆直径 $D_b = 770$ mm，螺栓孔数/直径 $n \times d_0 = 20 \times \phi 26$ mm
+    \item 法兰厚度 $t_f = 36$ mm，接管长度 $L_n = 300$ mm（外伸）
+    \item 法兰盖外径 $D_g = 815$ mm，盖厚 $t_g = 32$ mm
+    \item 紧固件：等长双头螺柱 M24 $\times$ 140（$n = 20$），35CrMoA 调质
+    \item 垫片：柔性石墨复合垫 $\phi 640/\phi 610 \times 3$ mm（外径/内径 $\times$ 厚），按 HG/T 20606—2009
+    \item 人孔总质量（含法兰盖）$\approx 185$ kg
+\end{itemize}
+
+人孔开孔直径为全设备最大开孔（$d = 586$ mm），其补强设计是本章开孔补强校核的核心对象。
 
 \subsection{防涡流挡板}
 
@@ -310,7 +369,7 @@ F_{b,\max} = \frac{4M_{\max}}{n D_{bc}} - \frac{N_{\min}}{n}
 
 \subsection{补强计算结果}
 
-各主要开孔的补强计算结果汇总于表 \ref{tab:reinforcement}。计算结果表明：DN500 和 DN100 开孔区域的接管厚壁自补强已足以满足等面积补强准则，无需增设补强圈；DN50 及以下小口径仪表接管因开孔直径小，壳体有效厚度提供的多余金属已覆盖削弱面积，不需另行补强。
+各主要开孔的补强计算结果汇总于表 \ref{tab:reinforcement}。计算结果表明：DN600 人孔和 DN100 开孔区域的接管厚壁自补强已足以满足等面积补强准则，无需增设补强圈；DN50 及以下小口径仪表接管因开孔直径小，壳体有效厚度提供的多余金属已覆盖削弱面积，不需另行补强。
 
 \begin{table}[!htb]
   \centering
@@ -322,7 +381,7 @@ F_{b,\max} = \frac{4M_{\max}}{n D_{bc}} - \frac{N_{\min}}{n}
     \toprule
     \textbf{序号} & \textbf{开孔位置} & \textbf{接管规格} & \textbf{$A$ / mm²} & \textbf{$A_e$ / mm²} & \textbf{补强方式} \\
     \midrule
-    1 & 筒体   & $\phi 508 \times 12$ & 2212 & 3647 & 厚壁接管自补强 \\
+    1 & 筒体   & $\phi 610 \times 12$ & 2736 & 4320 & 厚壁接管自补强 \\
     2 & 筒体   & $\phi 114.3 \times 6$ & 468 & 1020 & 厚壁接管自补强 \\
     3 & 上封头 & $\phi 114.3 \times 6$ & 468 & 980  & 厚壁接管自补强 \\
     4 & 下封头 & $\phi 114.3 \times 6$ & 468 & 1020 & 厚壁接管自补强 \\
