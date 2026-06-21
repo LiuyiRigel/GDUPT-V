@@ -1,0 +1,194 @@
+% !TeX root = ../thesis.tex
+
+\chapter{强度计算与校核}
+
+\label{chap:strength}
+
+强度计算按 GB/T 150.3—2024\cite{gbt150-2024} 执行，计算所依据的设计基础参数（许用应力 $[\sigma]^t = 186$ MPa、焊接接头系数 $\phi = 0.85$、腐蚀裕量 $C_2 = 3.0$ mm、钢板负偏差 $C_1 = 0.3$ mm、计算压力 $P_c = 0.80$ MPa）均在第 2 章中确定。本章依次完成圆筒内压强度、圆筒外压稳定性、封头内压强度的计算与校核，最后给出水压试验工况的应力评定。
+
+\section{圆筒内压强度}
+
+\subsection{计算厚度}
+
+按 GB/T 150.3—2024 式 (5-1)，内压圆筒计算厚度由中径公式给出：
+
+\begin{equation}
+\delta = \frac{P_c D_i}{2[\sigma]^t \phi - P_c}
+\label{eq:cyl-delta}
+\end{equation}
+
+式中 $P_c$——计算压力，$0.80$ MPa；$D_i$——筒体内径，$1800$ mm；$[\sigma]^t$——设计温度许用应力，$186$ MPa；$\phi$——焊接接头系数，$0.85$。
+
+代入计算：
+\begin{equation}
+\delta = \frac{0.80 \times 1800}{2 \times 186 \times 0.85 - 0.80}
+       = \frac{1440}{316.2 - 0.80}
+       = \frac{1440}{315.4}
+       \approx 4.57\ \text{mm}
+\label{eq:cyl-delta-result}
+\end{equation}
+
+计算厚度 $4.57$ mm 仅满足内压强度准则的基本要求。实际选用的名义厚度需在此基础上考虑腐蚀裕量、钢板负偏差及外压稳定性、开孔补强、制造刚度的附加需求。
+
+\subsection{名义厚度与有效厚度}
+
+设计厚度：$\delta_d = \delta + C_2 = 4.57 + 3.0 = 7.57$ mm。\\
+初步名义厚度：$\delta_d + C_1 = 7.57 + 0.3 = 7.87$ mm。
+
+综合以下因素，取名义厚度 $\delta_n = 14$ mm：
+\begin{enumerate}
+    \item 满足全真空外压稳定性（$\delta_n = 8$ mm 时外压许用压力远低于 $0.1013$ MPa）；
+    \item 为开孔补强提供充足的壳体多余厚度；
+    \item 保证运输、吊装工况下的截面刚度；
+    \item 与封头名义厚度一致，便于采购与制造；
+    \item 匹配 GB/T 709—2019 标准钢板厚度规格\cite{gbt709-2019}。
+\end{enumerate}
+
+有效厚度：$\delta_e = \delta_n - C_1 - C_2 = 14 - 0.3 - 3.0 = 10.7$ mm。
+
+\subsection{操作工况应力校核}
+
+操作工况下圆筒环向薄膜应力 $\sigma_\theta$ 和轴向薄膜应力 $\sigma_z$ 分别为：
+
+\begin{align}
+\sigma_\theta &= \frac{P_c (D_i + \delta_e)}{2\delta_e}
+               = \frac{0.80 \times (1800 + 10.7)}{2 \times 10.7}
+               = 67.7\ \text{MPa} \\
+\sigma_z     &= \frac{P_c (D_i + \delta_e)}{4\delta_e}
+               = \frac{\sigma_\theta}{2}
+               = 33.9\ \text{MPa}
+\end{align}
+
+许用应力限值：$[\sigma]^t \phi = 186 \times 0.85 = 158.1$ MPa。\\
+$\sigma_\theta = 67.7$ MPa $ < 158.1$ MPa，安全裕度 $n_\theta = 2.33$。\\
+$\sigma_z = 33.9$ MPa $ < 158.1$ MPa，安全裕度 $n_z = 4.66$。
+
+圆筒在内压操作工况下应力水平远低于许用值，强度储备充裕。
+
+\section{圆筒外压稳定性}
+\label{sec:ext-pressure}
+
+\subsection{计算模型}
+
+全真空工况下，圆筒受 $0.1013$ MPa 的均匀外压作用。外压失稳分析按 GB/T 150.3—2024 第 6 章的图算法执行\cite{gbt150-2024}：首先由几何参数确定外压应变系数 $A$，再结合材料弹性模量计算许用外压力 $[P]$，与全真空外压载荷 $P_{\text{vac}}$ 进行比较。
+
+\subsection{几何参数}
+
+外压计算长度取筒体切线长度与两端封头曲面当量直段长度之和。标准椭圆封头对外压筒体起约束作用，其当量直段长度按 $h_i/3$ 计入\cite{guocheng2020}：
+
+\begin{align}
+L_{cr} &= L + 2 \times \frac{h_i}{3} = 1700 + 2 \times \frac{450}{3} = 2000\ \text{mm} \\
+D_o    &= D_i + 2\delta_n = 1800 + 2 \times 14 = 1828\ \text{mm} \\
+\frac{D_o}{\delta_e} &= \frac{1828}{10.7} = 170.8 \\
+\frac{L_{cr}}{D_o} &= \frac{2000}{1828} = 1.094
+\end{align}
+
+\subsection{许用外压力}
+
+由 $L_{cr}/D_o = 1.094$ 和 $D_o/\delta_e = 170.8$ 查 GB/T 150.3—2024 图 6-2，外压应变系数 $A \approx 1.6 \times 10^{-4}$。$A$ 值位于材料弹性段，许用外压力由弹性模量直接确定：
+
+\begin{equation}
+[P] = \frac{2AE_t}{3(D_o/\delta_e)}
+\label{eq:allow-p}
+\end{equation}
+
+全真空工况金属温度 $100$ ℃，Q345R 弹性模量 $E_t \approx 2.01 \times 10^5$ MPa（保守取 $2.0 \times 10^5$ MPa）。
+
+\[
+[P] = \frac{2 \times 1.6 \times 10^{-4} \times 2.0 \times 10^5}{3 \times 170.8}
+     = \frac{64.0}{512.4}
+     \approx 0.125\ \text{MPa}
+\]
+
+\subsection{稳定性评定}
+
+全真空外压载荷 $P_{\text{vac}} = 0.1013$ MPa（1 标准大气压）。
+
+评定：$[P] = 0.125$ MPa $ > P_{\text{vac}} = 0.1013$ MPa，筒体在全真空工况下不会发生外压失稳。外压稳定安全系数 $n_s = 0.125 / 0.1013 \approx 1.23$。
+
+\section{封头内压强度}
+
+标准椭圆封头（$D_i/2h_i = 2$）的形状系数 $K = 1.0$。按 GB/T 150.3—2024 式 (7-1)：
+
+\begin{equation}
+\delta_h = \frac{K P_c D_i}{2[\sigma]^t \phi - 0.5P_c}
+\label{eq:head-delta}
+\end{equation}
+
+代入计算：
+\begin{equation}
+\delta_h = \frac{1.0 \times 0.80 \times 1800}{2 \times 186 \times 0.85 - 0.5 \times 0.80}
+         = \frac{1440}{316.2 - 0.4}
+         = \frac{1440}{315.8}
+         \approx 4.56\ \text{mm}
+\label{eq:head-delta-result}
+\end{equation}
+
+封头计算厚度 $4.56$ mm 与筒体计算厚度 $4.57$ mm 基本一致，说明标准椭圆封头与等壁厚圆筒在内压承载能力上匹配良好。
+
+封头设计厚度 $\delta_{dh} = 4.56 + 3.0 = 7.56$ mm，考虑成型减薄（冲压工艺约 $10\% \sim 15\%$ 壁厚减薄）、与筒体壁厚匹配和标准化需求，取名义厚度 $\delta_{nh} = 14$ mm，有效厚度 $\delta_{eh} = 10.7$ mm。
+
+封头最大薄膜应力校核：
+\[
+\sigma_h = \frac{P_c (D_i + 0.5\delta_{eh})}{2\delta_{eh}}
+         = \frac{0.80 \times (1800 + 5.35)}{21.4}
+         \approx 67.5\ \text{MPa}
+\]
+
+$\sigma_h = 67.5$ MPa $ < [\sigma]^t \phi = 158.1$ MPa，满足强度要求。
+
+\section{水压试验应力校核}
+
+\subsection{试验压力}
+
+按 GB/T 150.4—2024 第 4.6.2 节\cite{gbt150-2024}，液压试验压力由下式确定：
+\begin{equation}
+P_T = 1.25 P \frac{[\sigma]}{[\sigma]^t}
+\label{eq:pt}
+\end{equation}
+
+代入：$P_T = 1.25 \times 0.80 \times 189 / 186 = 1.016$ MPa。圆整取 $P_T = 1.02$ MPa。液柱静压力经前文验证可忽略，试验压力以罐顶压力表读数为准。
+
+\subsection{试验应力校核}
+
+试验压力下圆筒环向薄膜应力：
+\[
+\sigma_T = \frac{P_T (D_i + \delta_e)}{2\delta_e}
+         = \frac{1.02 \times 1810.7}{21.4}
+         \approx 86.3\ \text{MPa}
+\]
+
+液压试验应力校核准则（GB/T 150.4—2024 第 4.6.2.3 条）：
+\[
+\sigma_T \le 0.9 \phi R_{\text{eL}} = 0.9 \times 0.85 \times 345 = 263.9\ \text{MPa}
+\]
+
+$\sigma_T = 86.3$ MPa $ \ll 263.9$ MPa，安全裕度 $n_T = 3.06$。封头在试验压力下的最大薄膜应力与筒体相当（$86.3$ MPa），均满足校核条件。
+
+\section{强度计算结论}
+
+筒体、封头的强度计算结果汇总于表 \ref{tab:strength-summary}。各项强度指标均满足 GB/T 150.3—2024 的准则要求，且安全裕度充足。结构设计的主要控制因素为全真空外压稳定性和开孔补强刚度需求，而非内压强度。最终选定的名义厚度 $\delta_n = 14$ mm 同时满足内压强度、外压稳定性、开孔补强和制造刚度的多重约束，是兼顾工程经济性和安全性的最优取值。
+
+\begin{table}[!htb]
+  \centering
+  \caption{强度计算结论}
+  \label{tab:strength-summary}
+  \small\renewcommand{\arraystretch}{1.05}
+  \setlength{\tabcolsep}{7pt}
+  \begin{tabularx}{\textwidth}{@{}*{4}{>{\centering\arraybackslash}X}@{}}
+    \toprule
+    \textbf{计算项目} & \textbf{筒体} & \textbf{封头} & \textbf{许用限值 / 判定} \\
+    \midrule
+    计算厚度 $\delta$ / mm       & 4.57   & 4.56   & —— \\
+    名义厚度 $\delta_n$ / mm & 14  & 14     & —— \\
+    有效厚度 $\delta_e$ / mm & 10.7 & 10.7   & —— \\
+    操作环向应力 / MPa   & 67.7   & 67.5   & $< 158.1$，合格 \\
+    操作工况安全裕度     & 2.33   & 2.34   & —— \\
+    许用外压 $[P]$ / MPa & 0.125  & ——    & $> 0.1013$，合格 \\
+    外压稳定安全系数     & 1.23   & ——    & $> 1.0$，合格 \\
+    试验压力 $P_T$ / MPa & 1.02   & 1.02   & —— \\
+    试验环向应力 / MPa   & 86.3   & 86.3   & $< 263.9$，合格 \\
+    试验工况安全裕度     & 3.06   & 3.06   & —— \\
+    \bottomrule
+  \end{tabularx}
+\end{table}

@@ -1,0 +1,60 @@
+\documentclass{gduptbe}
+
+\input{Info}
+
+\begin{document}
+
+\maketitle
+
+%%============= 前导页 =============%%
+\frontmatter
+
+% 中英文摘要
+\input{parts/abstract}
+
+% 目录
+\tableofcontents
+
+%%============= 插图索引 =============%%
+% 插图索引（本科生可根据需要决定是否启用）
+% \listoffigures
+
+%%============= 表格索引 =============%%
+% 表格索引（本科生可根据需要决定是否启用）
+% \listoftables
+
+%%============= 符号说明 =============%%
+% 符号说明（可选）
+% \input{parts/denotation}
+
+%%============= 正 文 =============%%
+\mainmatter
+\raggedbottom
+\songti
+\include{parts/chap01}   % 工程背景与设计条件
+\include{parts/chap02}   % 材料选择与设计基础
+\include{parts/chap03}   % 结构方案与零部件选型
+\include{parts/chap04}   % 强度计算与校核
+\include{parts/chap05}   % 制造、检验与压力试验
+
+%%============= 尾 部 =============%%
+\backmatter
+
+%%============= 参考文献 =============%%
+% 参考文献标题：三号粗黑体居中（在Info.tex中定义）
+% 参考文献正文：五号宋体
+\begin{spacing}{1}
+\zihao{5}
+\setlength{\bibsep}{1.5ex}
+\bibliography{bib/refs}
+\end{spacing}
+
+%%============= 致 谢 =============%%
+\input{parts/acknowledgements}
+
+%%============= 附 录 =============%%
+% 附录（如需添加，取消下方注释）
+% \appendix
+% \input{parts/appendix}
+
+\end{document}

@@ -1,0 +1,34 @@
+﻿% !TeX root = ../thesis.tex
+
+\chapter{材料选择与设计基础}
+
+强度计算所需的设计基础参数——材料许用应力、焊接接头系数、厚度附加量及计算压力——在本章中逐一确定。参数的取值直接影响强度计算结果的准确性和设计方案的工程可行性。
+
+\section{壳体与封头材料}
+
+\subsection{材料牌号选择}
+
+壳体与封头材料的选择须同时满足三个约束条件：设计温度 $170\,\textdegree$C 下的强度不显著衰减；MDMT $-15\,\textdegree$C 下的低温韧性；与冷却水介质的化学相容性\cite{gbt150-2024}。
+
+Q345R 是 GB/T 713.1—2023 中压力容器专用 Mn-Nb 系低合金高强度结构钢\cite{gbt713-1-2023}，供货状态为正火态。该钢种在设计温度区间内力学性能稳定性好，在 $-20\,\textdegree$C 以上具备良好的低温冲击韧性，焊接性优良（碳当量 $C_{\mathrm{eq}} \le 0.45\%$，冷裂纹敏感性指数 $P_{\mathrm{cm}} \le 0.28\%$），对工业冷却水（pH 6.5～8.5）的耐均匀腐蚀性能满足设计使用年限 15 年的要求\cite{hgt20580-2020}。
+
+综合以上因素，筒体及封头选用 Q345R 正火镇静钢板，板厚 $3 \sim 16$ mm，其主要力学性能指标和化学成分要求分别列于表 \ref{tab:q345r-properties} 和表 \ref{tab:q345r-chemistry}。
+
+\begin{table}[!htb]
+  \centering
+  \caption{Q345R 钢板主要力学性能（板厚 $3 \sim 16$ mm，正火态）}
+  \label{tab:q345r-properties}
+  \small\renewcommand{\arraystretch}{1.05}
+  \setlength{\tabcolsep}{5pt}
+  \begin{tabularx}{\textwidth}{@{}>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X@{}}
+    \toprule
+    \textbf{性能指标} & \textbf{符号} & \textbf{数值} \\
+    \midrule
+    屈服强度（室温）         & $R_{\mathrm{eL}}$ & $345$ MPa \\
+    抗拉强度                 & $R_m$           & $510 \sim 640$ MPa \\
+    断后伸长率               & $A$             & $\ge 21\%$ \\
+    $0\,\textdegree$C 冲击吸收能量 & $KV_2$          & $\ge 41$ J \\
+    弯曲试验（$180^\circ$，$d=3a$） & — & 合格 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
