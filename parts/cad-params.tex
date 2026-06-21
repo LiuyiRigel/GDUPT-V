@@ -102,7 +102,7 @@
     密度                       & $\rho_s$          & $7850$ kg/m³ \\
     泊松比                     & $\mu$             & $\approx 0.3$ \\
     线膨胀系数（$20\sim200$ ℃）& $\alpha$          & $\approx 12.0\times10^{-6}$ /℃ \\
-    钢板厚度负偏差（Class A）  & $C_1$             & $-0.3$ mm \\
+    钢板厚度负偏差（B类偏差）  & $C_1$             & $-0.30$ mm（固定下偏差） \\
     \midrule
     \multicolumn{3}{c}{\textit{厚度附加量}} \\
     \midrule
@@ -148,7 +148,7 @@
     设计温度许用应力                    & $[\sigma]^t$   & $186$ MPa      & GB/T 150.2—2024 附录 B，线性插值 \\
     常温许用应力                        & $[\sigma]$     & $189$ MPa      & GB/T 150.2—2024 附录 B \\
     焊接接头系数                        & $\phi$         & $0.85$         & A/B 类焊缝，局部 RT $\ge 20\%$ \\
-    钢板厚度负偏差                      & $C_1$          & $0.3$ mm       & GB/T 709—2019，Class A \\
+    钢板厚度负偏差                      & $C_1$          & $0.30$ mm      & GB/T 709—2019 B类偏差（固定下偏差$-0.30$ mm） \\
     腐蚀裕量（壳体/封头）               & $C_2$          & $3.0$ mm       & HG/T 20580—2020，15 年 \\
     计算压力                            & $P_c$          & $0.80$ MPa     & 液柱静压力 $< 5\%$ 设计压力，可忽略 \\
     壳体计算厚度                        & $\delta$       & $4.57$ mm      & GB/T 150.3—2024 式 (5-1) \\
@@ -276,17 +276,17 @@
     \toprule
     \textbf{编号} & \textbf{用途} & \textbf{位置} & \textbf{公称直径 DN / mm} & \textbf{接管外径 $\times$ 壁厚 / mm} & \textbf{法兰类型} & \textbf{密封面} & \textbf{PN} & \textbf{法兰标准} & \textbf{接管标准} \\
     \midrule
-    N1  & 冷媒进口    & 罐顶     & 100 & $\phi 114.3 \times 6.0$  & WN & RF & 16 & HG/T 20592 & GB 6479 \\
-    N2  & 氮气补气口  & 罐顶     & 50  & $\phi 60.3 \times 5.0$   & WN & RF & 16 & HG/T 20592 & GB 6479 \\
-    N3  & 放空口      & 罐顶     & 50  & $\phi 60.3 \times 5.0$   & WN & RF & 16 & HG/T 20592 & GB 6479 \\
-    N4  & 压力表口    & 罐顶     & 25  & $\phi 33.7 \times 4.0$   & WN & RF & 25 & HG/T 20592 & GB 6479 \\
-    N5  & 温度计口    & 罐顶     & 40  & $\phi 48.3 \times 5.0$   & WN & RF & 25 & HG/T 20592 & GB 6479 \\
-    N6a & 液位计口（上）& 筒体   & 25  & $\phi 33.7 \times 4.0$   & WN & RF & 25 & HG/T 20592 & GB 6479 \\
-    N6b & 液位计口（下）& 筒体   & 25  & $\phi 33.7 \times 4.0$   & WN & RF & 25 & HG/T 20592 & GB 6479 \\
-    N7  & 压力变送器口 & 筒体    & 25  & $\phi 33.7 \times 4.0$   & WN & RF & 25 & HG/T 20592 & GB 6479 \\
-    N8  & 冷媒出口    & 罐底     & 100 & $\phi 114.3 \times 6.0$  & WN & RF & 16 & HG/T 20592 & GB 6479 \\
-    N9  & 排净口      & 罐底     & 50  & $\phi 60.3 \times 5.0$   & WN & RF & 16 & HG/T 20592 & GB 6479 \\
-    M1  & 人孔        & 筒体侧壁 & 500 & $\phi 508.0 \times 12.0$ & WN & RF & 16 & HG/T 21514 & GB 6479 \\
+    N1  & 冷媒进口    & 罐顶     & 100 & $\phi 114.3 \times 6.0$  & WN & RF & 20 & HG/T 20592 & GB 6479 \\
+    N2  & 氮气补气口  & 罐顶     & 50  & $\phi 60.3 \times 5.0$   & WN & RF & 20 & HG/T 20592 & GB 6479 \\
+    N3  & 放空口      & 罐顶     & 50  & $\phi 60.3 \times 5.0$   & WN & RF & 20 & HG/T 20592 & GB 6479 \\
+    N4  & 压力表口    & 罐顶     & 25  & $\phi 33.7 \times 4.0$   & WN & RF & 50 & HG/T 20592 & GB 6479 \\
+    N5  & 温度计口    & 罐顶     & 40  & $\phi 48.3 \times 5.0$   & WN & RF & 50 & HG/T 20592 & GB 6479 \\
+    N6a & 液位计口（上）& 筒体   & 25  & $\phi 33.7 \times 4.0$   & WN & RF & 50 & HG/T 20592 & GB 6479 \\
+    N6b & 液位计口（下）& 筒体   & 25  & $\phi 33.7 \times 4.0$   & WN & RF & 50 & HG/T 20592 & GB 6479 \\
+    N7  & 压力变送器口 & 筒体    & 25  & $\phi 33.7 \times 4.0$   & WN & RF & 50 & HG/T 20592 & GB 6479 \\
+    N8  & 冷媒出口    & 罐底     & 100 & $\phi 114.3 \times 6.0$  & WN & RF & 20 & HG/T 20592 & GB 6479 \\
+    N9  & 排净口      & 罐底     & 50  & $\phi 60.3 \times 5.0$   & WN & RF & 20 & HG/T 20592 & GB 6479 \\
+    M1  & 人孔        & 筒体侧壁 & 500 & $\phi 508.0 \times 12.0$ & WN & RF & 20 & HG/T 21514 & GB 6479 \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -311,7 +311,7 @@
     垫片型式           & 柔性石墨复合垫 / PTFE 包覆垫     & HG/T 20606—2009 / HG/T 20607—2009 \\
     垫片适用温度       & $-200\sim650$ ℃（柔性石墨复合垫）& — \\
     垫片适用介质       & 水、蒸汽、油品、非强氧化性介质  & — \\
-    人孔密封垫片       & 柔性石墨复合垫，DN500 PN16       & HG/T 21514—2014 \\
+    人孔密封垫片       & 柔性石墨复合垫，DN500 PN20       & HG/T 21514—2014 \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -331,12 +331,12 @@
     \midrule
     人孔类型                & 回转盖带颈对焊法兰人孔     & HG/T 21514—2014 \\
     公称直径 DN             & $500$ mm                    & — \\
-    公称压力 PN             & $16$（$1.6$ MPa）          & — \\
+    公称压力 PN             & $20$（Class 150）           & — \\
     接管规格                & $\phi 508 \times 12$ mm     & — \\
     接管材料                & 20 号钢（GB 6479—2013）   & — \\
     法兰型式                & 带颈对焊法兰（WN）          & HG/T 20592—2009 \\
     法兰密封面              & 突面（RF）                  & — \\
-    法兰标准号              & HG/T 20592 WN500-16 RF     & — \\
+    法兰标准号              & HG/T 20592 WN500-20 RF     & — \\
     法兰盖                  & 回转盖式，碳钢              & HG/T 21514—2014 \\
     紧固件                  & 等长双头螺柱，35CrMoA       & HG/T 20613—2009 \\
     垫片                    & 柔性石墨复合垫              & HG/T 20606—2009 \\
@@ -397,6 +397,30 @@
     N8  & 冷媒出口            & 下封头（底轴）  & 中心     & —                       & $250$ & $0$（设防涡流挡板） \\
     N9  & 排净口              & 下封头          & $180$    & —                       & $200$ & $0$ \\
     M1  & 人孔                & 筒体            & $270$    & $1000$                  & $300$ & $0$ \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\section{管口参数汇总——DN与PN对照}
+\label{sec:cad-nozzle-dn-pn}
+
+表~\ref{tab:cad-nozzle-summary} 汇总全部管口代号与公称直径 DN、公称压力 PN 的对应关系，供 CAD 标注和材料统计直接引用。DN 按 GB/T 1047—2019 定义；PN 按 HG/T 20615—2009 的 Class/PN 对应关系确定（Class 150 $\rightarrow$ PN20，Class 300 $\rightarrow$ PN50）。
+
+\begin{table}[htbp]
+  \centering
+  \caption{管口参数全表（DN与PN汇总）}
+  \label{tab:cad-nozzle-summary}
+  \small\renewcommand{\arraystretch}{1.35}
+  \setlength{\tabcolsep}{12pt}
+  \begin{tabularx}{0.7\textwidth}{@{}c c c@{}}
+    \toprule
+    \textbf{管口代号} & \textbf{DN} & \textbf{PN} \\
+    \midrule
+    A1、A2、V1、Z1    & DN50  & PN20 \\
+    B1                & DN250 & PN20 \\
+    L1$\sim$L4、P1、R1 & DN50  & PN50 \\
+    M1                & DN600 & PN20 \\
+    T1                & DN40  & PN50 \\
     \bottomrule
   \end{tabularx}
 \end{table}
