@@ -363,13 +363,48 @@ F_{b,\max} = \frac{4M_{\max}}{n D_{bc}} - \frac{N_{\min}}{n}
 
 \subsection{补强方法与准则}
 
-筒体及封头上的接管开孔破坏了壳体的连续承载截面，孔边产生应力集中，峰值应力可达壳体薄膜应力的 $2\sim3$ 倍。按 GB/T 150.3—2024 第 8 章\cite{gbt150-2024}，采用等面积补强法（Area Replacement Method），其判据为：在有效补强范围内，补强金属的截面积 $A_e$ 不小于因开孔而削弱的壳体金属截面积 $A$。
+筒体及封头上的接管开孔破坏了壳体的连续承载截面，孔边产生应力集中，峰值应力可达壳体薄膜应力的 $2\sim3$ 倍。按 GB/T 150.3—2024 第 8 章\cite{gbt150-2024}，采用等面积补强法，其判据为：在有效补强范围内，补强金属的截面积 $A_e$ 不小于因开孔而削弱的壳体金属截面积 $A$。
 
 补强有效范围：宽度方向取 $B = \max\{2d, d + 2\delta_n + 2\delta_{nt}\}$，沿壳体外壁的外侧高度 $h_1 = \min\{\sqrt{d\delta_{nt}}, \text{接管实际外伸}\}$，内侧高度 $h_2 = \min\{\sqrt{d\delta_{nt}}, \text{接管实际内伸}\}$。补强面积为以下各部分之和：壳体在补强范围内的多余厚度面积 $A_1$、接管在补强范围内的多余厚度面积 $A_2$、以及焊缝面积 $A_3$。
 
+\subsection{人孔（M1）补强详细计算}
+
+\textbf{已知参数}：壳体 $D_i = 1800$ mm，$\delta_n = 14$ mm，$\delta_e = 10.7$ mm，$[\sigma]^t = 186$ MPa；人孔接管 $\phi 610 \times 12$ mm（DN600），内径 $d_i = 586$ mm，接管材料 20 号钢，$[\sigma]^t_n = 140$ MPa；计算压力 $P_c = 0.80$ MPa。
+
+壳体计算厚度 $\delta = 4.57$ mm（见式 \eqref{eq:cyl-delta}）。接管计算厚度按内压圆筒公式（以外径为基准）：
+\[
+\delta_t = \frac{P_c D_o}{2[\sigma]^t_n + P_c} = \frac{0.80 \times 610}{2 \times 140 + 0.80} = 1.74\ \text{mm}
+\]
+
+接管有效厚度 $\delta_{et} = \delta_{nt} - C_2 = 12 - 3.0 = 9.0$ mm；强度削弱系数 $f_r = [\sigma]^t_n / [\sigma]^t = 140/186 = 0.753$。
+
+\textbf{开孔削弱面积}：
+\[
+A = d\delta + 2\delta\delta_{et}(1 - f_r) = 586 \times 4.57 + 2 \times 4.57 \times 9.0 \times (1 - 0.753) = 2678 + 20 = 2698\ \text{mm}^2
+\]
+
+\textbf{有效补强范围}：
+\[
+B = \max\{2d,\ d + 2\delta_n + 2\delta_{nt}\} = \max\{1172,\ 638\} = 1172\ \text{mm}
+\]
+\[
+h_1 = \min\{\sqrt{d\delta_{nt}},\ 300\} = \min\{\sqrt{586 \times 12},\ 300\} = \min\{83.9,\ 300\} = 84\ \text{mm}
+\]
+$h_2 = 0$（接管无内伸）。
+
+\textbf{有效补强面积}：
+\begin{align}
+A_1 &= (B - d)(\delta_e - \delta) = (1172 - 586) \times (10.7 - 4.57) = 586 \times 6.13 = 3592\ \text{mm}^2 \\
+A_2 &= 2h_1(\delta_{et} - \delta_t)f_r = 2 \times 84 \times (9.0 - 1.74) \times 0.753 = 918\ \text{mm}^2 \\
+A_3 &\approx 64\ \text{mm}^2 \quad \text{（焊缝金属面积，焊脚高度 8 mm）} \\
+A_e &= A_1 + A_2 + A_3 = 3592 + 918 + 64 = 4574\ \text{mm}^2
+\end{align}
+
+\textbf{补强评定}：$A_e = 4574\ \text{mm}^2 > A = 2698\ \text{mm}^2$，富余量 $(4574-2698)/2698 \approx 69.5\%$，补强合格，无需增设补强圈。
+
 \subsection{补强计算结果}
 
-各主要开孔的补强计算结果汇总于表 \ref{tab:reinforcement}。计算结果表明：DN600 人孔和 DN100 开孔区域的接管厚壁自补强已足以满足等面积补强准则，无需增设补强圈；DN50 及以下小口径仪表接管因开孔直径小，壳体有效厚度提供的多余金属已覆盖削弱面积，不需另行补强。
+各主要开孔的补强计算结果汇总于表 \ref{tab:reinforcement}。DN600 人孔其接管厚壁自补强已满足等面积补强准则；DN100 开孔区域同理满足；DN50 及以下小口径仪表接管因开孔直径小，壳体有效厚度提供的多余金属已覆盖削弱面积，不需另行补强。
 
 \begin{table}[!htb]
   \centering
@@ -381,7 +416,7 @@ F_{b,\max} = \frac{4M_{\max}}{n D_{bc}} - \frac{N_{\min}}{n}
     \toprule
     \textbf{序号} & \textbf{开孔位置} & \textbf{接管规格} & \textbf{$A$ / mm²} & \textbf{$A_e$ / mm²} & \textbf{补强方式} \\
     \midrule
-    1 & 筒体   & $\phi 610 \times 12$ & 2736 & 4320 & 厚壁接管自补强 \\
+    1 & 筒体   & $\phi 610 \times 12$ & 2698 & 4574 & 厚壁接管自补强 \\
     2 & 筒体   & $\phi 114.3 \times 6$ & 468 & 1020 & 厚壁接管自补强 \\
     3 & 上封头 & $\phi 114.3 \times 6$ & 468 & 980  & 厚壁接管自补强 \\
     4 & 下封头 & $\phi 114.3 \times 6$ & 468 & 1020 & 厚壁接管自补强 \\

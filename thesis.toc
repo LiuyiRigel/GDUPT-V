@@ -1,0 +1,71 @@
+\thispagestyle {frontmatterstyle}
+\contentsline {chapter}{\numberline {第1章\hspace {.3em}}工程背景与设计条件}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}项目来源与工艺背景}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}设计依据与标准体系}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}操作介质与容器类别}{1}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}操作介质与介质组别}{1}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}容器类别划分}{2}{subsection.1.3.2}%
+\contentsline {section}{\numberline {1.4}操作工况与设计条件}{2}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}操作工况}{2}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}设计条件的确定}{3}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}设计参数汇总}{3}{section.1.5}%
+\contentsline {section}{\numberline {1.6}技术特性表}{3}{section.1.6}%
+\contentsline {chapter}{\numberline {第2章\hspace {.3em}}材料选择与设计基础}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}壳体与封头材料}{7}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}材料牌号选择}{7}{subsection.2.1.1}%
+\contentsline {chapter}{\numberline {第3章\hspace {.3em}}结构设计与强度计算}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}筒体设计}{9}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}筒体结构方案}{9}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}内压强度计算}{9}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}外压稳定性}{10}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}失稳机制与计算方法}{10}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}几何参数与许用外压}{10}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}稳定性评定}{11}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}封头设计}{11}{section.3.3}%
+\contentsline {section}{\numberline {3.4}裙座设计}{11}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}选型与结构}{11}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}基础环板设计计算}{12}{subsection.3.4.2}%
+\contentsline {subsubsection}{载荷汇总}{12}{subsubsection*.8}%
+\contentsline {subsubsection}{基础环板几何尺寸}{13}{subsubsection*.10}%
+\contentsline {subsubsection}{混凝土基础顶面压应力校核}{13}{subsubsection*.11}%
+\contentsline {subsubsection}{基础环板厚度计算}{14}{subsubsection*.12}%
+\contentsline {subsubsection}{地脚螺栓选型}{14}{subsubsection*.13}%
+\contentsline {subsubsection}{基础环板设计结论}{15}{subsubsection*.14}%
+\contentsline {subsection}{\numberline {3.4.3}附件与开孔}{15}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}接管与法兰}{16}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}接管选型与布置}{16}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}法兰选型}{16}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}人孔}{18}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}防涡流挡板}{18}{subsection.3.5.4}%
+\contentsline {section}{\numberline {3.6}开孔补强}{19}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}补强方法与准则}{19}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}人孔（M1）补强详细计算}{19}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}补强计算结果}{20}{subsection.3.6.3}%
+\contentsline {section}{\numberline {3.7}设备总尺寸链}{20}{section.3.7}%
+\contentsline {chapter}{\numberline {第4章\hspace {.3em}}强度计算与校核}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}圆筒内压强度}{21}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}计算厚度}{21}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}名义厚度与有效厚度}{21}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}操作工况应力校核}{22}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}圆筒外压稳定性}{22}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}计算模型}{22}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}几何参数}{22}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}许用外压力}{23}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}稳定性评定}{23}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}封头内压强度}{23}{section.4.3}%
+\contentsline {section}{\numberline {4.4}水压试验应力校核}{24}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}试验压力}{24}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}试验应力校核}{24}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}强度计算结论}{24}{section.4.5}%
+\contentsline {chapter}{\numberline {第5章\hspace {.3em}}制造、检验与压力试验}{27}{chapter.5}%
+\contentsline {section}{\numberline {5.1}制造技术要求}{27}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}钢材进场检验}{27}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}成形与组装}{27}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}焊后热处理}{27}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}无损检测}{27}{section.5.2}%
+\contentsline {section}{\numberline {5.3}压力试验}{28}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}试验类型与介质}{28}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}试验压力与应力评定}{28}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}试验程序}{28}{subsection.5.3.3}%
+\contentsline {chapter}{附录}{35}{appendix*.23}%
+\contentsline {section}{\numberline {.1}设备机械数据表}{35}{section.Alph0.1}%

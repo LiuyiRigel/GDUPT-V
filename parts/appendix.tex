@@ -32,40 +32,4 @@
   \end{tabular}
 \end{table}
 
-\section{开孔补强详细计算}
 
-本节提供人孔（DN500）开孔补强的详细计算过程，作为正文第 \ref{sec:opening} 节的补充。
-
-\subsection{补强计算方法}
-
-采用 GB/T 150.3—2024 的等面积补强法，补强有效范围按以下规定确定：
-
-\begin{enumerate}
-    \item 有效宽度 $B = \max\{2d,\ d + 2\delta_n + 2\delta_{nt}\}$，其中 $d$ 为开孔直径，$\delta_n$ 为壳体名义厚度，$\delta_{nt}$ 为接管名义厚度；
-    \item 外侧有效高度 $h_1 = \min\{\sqrt{d\delta_{nt}},\ \text{接管实际外伸高度}\}$；
-    \item 内侧有效高度 $h_2 = \min\{\sqrt{d\delta_{nt}},\ \text{接管实际内伸高度}\}$。
-\end{enumerate}
-
-\subsection{人孔（DN500）补强计算}
-
-\textbf{已知参数}：壳体 $D_i = 1800$ mm，$\delta_n = 14$ mm，$\delta_e = 10.7$ mm；接管 $\phi 508 \times 12$ mm（DN500），内径 $d_i = 484$ mm，接管材料 20 号钢（$[\sigma]^t_n = 140$ MPa）。
-
-壳体计算厚度 $\delta = 4.57$ mm，接管计算厚度 $\delta_t = 1.46$ mm（按内压圆筒公式）。
-
-开孔削弱面积：
-\[
-A = d\delta + 2\delta\delta_{et}(1 - f_r) = 484 \times 4.57 + 2 \times 4.57 \times 9.0 \times (1 - 0.753) = 2212\ \text{mm}^2
-\]
-
-有效补强面积：
-\[
-A_e = A_1 + A_2 + A_3 = (B - d)(\delta_e - \delta) + 2h_1(\delta_{et} - \delta_t)f_r + A_3
-\]
-
-其中 $A_1$（壳体多余面积）$= (968 - 484) \times (10.7 - 4.57) = 2967$ mm²，$A_2$（接管多余面积）$= 2 \times 55 \times (9.0 - 1.46) \times 0.753 = 624$ mm²，$A_3$（焊缝面积）$\approx 56$ mm²。
-
-$A_e = 2967 + 624 + 56 = 3647\ \text{mm}^2 > A = 2212\ \text{mm}^2$，补强合格。
-
-\subsection{其他开孔补强}
-
-其余工艺接管（DN100、DN50）及仪表接管的开孔补强计算同理，因开孔直径较小，壳体本身的多余厚度已可满足补强要求或仅需接管壁厚即可实现自补强，此处不再逐一列示。
