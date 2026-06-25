@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.8)  25 JUN 2026 20:18
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.8)  25 JUN 2026 20:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1451,10 +1451,10 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 0781A8770D4589A82FC7E2C1B55C19E9;6886.
  ) 
 Here is how much of TeX's memory you used:
- 31037 strings out of 469390
- 691936 string characters out of 5467719
+ 30990 strings out of 469390
+ 688957 string characters out of 5467719
  1215252 words of memory out of 5000000
- 59138 multiletter control sequences out of 15000+600000
+ 59091 multiletter control sequences out of 15000+600000
  638384 words of font info for 161 fonts, out of 8000000 for 9000
  704 hyphenation exceptions out of 8191
  125i,13n,125p,1188b,966s stack positions out of 10000i,1000n,20000p,200000b,200000s

@@ -9,7 +9,9 @@
 \begin{table}[htbp]
   \centering
   \caption{设备机械数据表关键参数摘录}
-  \begin{tabular}{lll}
+  \small\renewcommand{\arraystretch}{1.15}
+  \setlength{\tabcolsep}{8pt}
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X c c@{}}
     \toprule
     \textbf{参数项} & \textbf{数值} & \textbf{单位} \\
     \midrule
@@ -22,14 +24,15 @@
     设计压力（内/外）& 0.80 / FV    & MPa(g) \\
     设计温度         & 170          & ℃ \\
     MDMT             & $-15$        & ℃ \\
-    腐蚀裕量（壳体） & 3.0          & mm \\n    腐蚀裕量（裙座） & 2.0          & mm \\
+    腐蚀裕量（壳体） & 3.0          & mm \\
+    腐蚀裕量（裙座） & 2.0          & mm \\
     焊接接头系数     & 0.85         & — \\
     基本风压         & 450          & N/m² \\
     地震设防烈度     & 7            & 度 \\
     设计使用年限     & 15           & 年 \\
     容器类别         & 第 Ⅰ 类     & — \\
     \bottomrule
-  \end{tabular}
+  \end{tabularx}
 \end{table}
 
 
