@@ -1,34 +1,370 @@
-﻿% !TeX root = ../thesis.tex
+% !TeX root = ../thesis.tex
 
-\chapter{材料选择与设计基础}
+\chapter{结构设计与强度计算}
 
-强度计算所需的设计基础参数——材料许用应力、焊接接头系数、厚度附加量及计算压力——在本章中逐一确定。参数的取值直接影响强度计算结果的准确性和设计方案的工程可行性。
+\label{chap:struct-design}
 
-\section{壳体与封头材料}
+本章在第二章确定的设计基础和材料参数之上，完成承压壳体的结构设计与强度验证。结构设计和强度计算本为一体两面——结构构型的选型决定了计算模型的边界条件，而强度准则的计算结果又反过来约束结构方案的可行性。本章将筒体、封头、裙座等主要承压零部件的结构设计与其强度验证一体化呈现。
 
-\subsection{材料牌号选择}
+\section{筒体设计}
 
-壳体与封头材料的选择须同时满足三个约束条件：设计温度 $170\,\textdegree$C 下的强度不显著衰减；MDMT $-15\,\textdegree$C 下的低温韧性；与冷却水介质的化学相容性\cite{gbt150-2024}。
+\subsection{筒体结构方案}
 
-Q345R 是 GB/T 713.1—2023 中压力容器专用 Mn-Nb 系低合金高强度结构钢\cite{gbt713-1-2023}，供货状态为正火态。该钢种在设计温度区间内力学性能稳定性好，在 $-20\,\textdegree$C 以上具备良好的低温冲击韧性，焊接性优良（碳当量 $C_{\mathrm{eq}} \le 0.45\%$，冷裂纹敏感性指数 $P_{\mathrm{cm}} \le 0.28\%$），对工业冷却水（pH 6.5～8.5）的耐均匀腐蚀性能满足设计使用年限 15 年的要求\cite{hgt20580-2020}。
+冷媒膨胀罐的筒体采用单层卷焊式圆筒形结构，由一张或两张 Q345R 钢板经冷卷或温卷成形后焊接纵缝，再与上、下封头组焊环缝。该方案在 DN1800 直径级别上工艺成熟，制造成本低，焊缝质量控制手段完备\cite{nbt47013-2015}。
 
-综合以上因素，筒体及封头选用 Q345R 正火镇静钢板，板厚 $3 \sim 16$ mm，其主要力学性能指标和化学成分要求分别列于表 \ref{tab:q345r-properties} 。
+筒体基本参数确定如下：内径取工艺数据表给定值 $D_i = 1800$ mm；筒体长度（不含封头直边段）$L = 1700$ mm，使罐体长径比 $L/D_i \approx 0.94$，属于短粗型立式容器，有利于气液分离和自由液面的稳定；名义厚度 $\delta_n = 14$ mm 的确定过程见本节强度计算。
+
+\subsection{内压强度计算}
+
+筒体计算厚度按照 GB/T 150.3—2024 式(5-1)确定。该式基于薄壁圆筒中径公式，假定环向薄膜应力沿壁厚均匀分布，适用于 $D_o/D_i \le 1.5$（本设备 $D_o/D_i = 1828/1800 = 1.016$，远小于准则限值）。
+
+\begin{equation}
+\delta = \frac{P_c D_i}{2[\sigma]^t \phi - P_c}
+\label{eq:cyl-delta}
+\end{equation}
+
+式中：$P_c$-计算压力，$0.80$ MPa（液柱静压力小于设计压力的 $5\%$，按 GB/T 150.1—2024 第 3.1.7 条可忽略）；$D_i$-筒体内径，$1800$ mm；$[\sigma]^t$-设计温度许用应力，$186$ MPa；$\phi$-焊接接头系数，$0.85$。
+
+代入计算：$\delta = 0.80 \times 1800 / (2 \times 186 \times 0.85 - 0.80) = 1440 / 315.4 = 4.57$ mm。
+
+计算厚度 $4.57$ mm 仅为内压强度准则的基本需求。在此基础上，设计厚度（增加腐蚀裕量）$\delta_d = 4.57 + 3.0 = 7.57$ mm，进一步考虑钢板负偏差后名义厚度至少需 $\delta_n \ge 7.87$ mm。但内压需求所对应的壁厚远不能覆盖全真空外压失稳的刚度需求，且难以满足开孔补强对壳体多余厚度的依赖和制造运输工况的截面刚度要求。综合外压稳定性（见第 \ref{sec:ext-pressure} 节）、开孔补强（见第 \ref{sec:opening} 节）和结构刚度的多重约束，取名义厚度 $\delta_n = 14$ mm。
+
+有效厚度 $\delta_e = \delta_n - C_1 - C_2 = 14 - 0.3 - 3.0 = 10.7$ mm。该值将用于后续所有应力校核计算。
+
+操作工况下筒体环向薄膜应力的校核结果：$\sigma_\theta = P_c(D_i+\delta_e)/(2\delta_e) = 67.7$ MPa，远低于许用限值 $[\sigma]^t\phi = 158.1$ MPa，安全系数 $n_\theta = 2.33$。轴向薄膜应力 $\sigma_z = P_c(D_i+\delta_e)/(4\delta_e) = 33.9$ MPa，安全系数 $n_z = 4.66$。内压操作工况下筒体的强度储备充裕，壁厚由刚度条件主导。
+
+\section{外压稳定性}
+
+\label{sec:ext-pressure-2}
+
+\subsection{失稳机制与计算方法}
+
+设计条件要求容器具备全真空运行能力。在全真空工况下，圆筒承受 $P_{\mathrm{vac}} = 0.1013$ MPa 的均匀外压。外压圆筒的失效模式并非强度屈服，而是弹性或弹塑性失稳——当外压力达到临界值时，圆筒截面突然丧失原始圆形而发生压扁或褶皱。GB/T 150.3—2024 第 6 章提供了基于小变形弹性稳定性理论的图算法，适用于本设备 $D_o/\delta_e = 170.8$ 位于弹性失稳区间的工况。
+
+\subsection{几何参数与许用外压}
+
+外压计算长度取筒体切线长度与两端封头曲面当量直段之和。封头对外压筒体起刚性约束作用，椭圆封头曲面的当量直段长度按 $h_i/3$ 计入：
+
+\begin{align}
+L_{cr} &= L + 2 \times \frac{h_i}{3} = 1700 + 2 \times \frac{450}{3} = 2000 \; \mathrm{mm} \\
+D_o    &= D_i + 2\delta_n = 1828 \; \mathrm{mm} \\
+\frac{D_o}{\delta_e} &= \frac{1828}{10.7} = 170.8 \\
+\frac{L_{cr}}{D_o} &= \frac{2000}{1828} = 1.094
+\end{align}
+
+由 $L_{cr}/D_o = 1.094$ 和 $D_o/\delta_e = 170.8$ 查取 GB/T 150.3—2024 图 6-2，得外压应变系数 $A = 1.6 \times 10^{-4}$。$A$ 值位于材料弹性模量控制段，许用外压力由弹性模量 $E_t$ 确定：
+
+\begin{equation}
+[P] = \frac{2AE_t}{3(D_o/\delta_e)}
+\label{eq:allow-p-2}
+\end{equation}
+
+全真空工况金属温度 $100$ ℃，Q345R 弹性模量保守取 $E_t \approx 2.0 \times 10^5$ MPa。代入得：$[P] = 2 \times 1.6 \times 10^{-4} \times 2.0 \times 10^5 / (3 \times 170.8) = 0.125$ MPa。
+
+\subsection{稳定性评定}
+
+$[P] = 0.125 \; \mathrm{MPa} > P_{\mathrm{vac}} = 0.1013 \; \mathrm{MPa}$，筒体在全真空工况下不会发生外压失稳。外压稳定安全系数 $n_s = [P]/P_{\mathrm{vac}} = 1.23 > 1.0$，满足 GB/T 150.3—2024 要求。
+
+\section{封头设计}
+
+上、下封头均采用标准椭圆形封头（EHA 型，按 GB/T 25198—2024 选型\cite{gbt25198-2024}），以内径为基准，$D_i/2h_i = 2$，形状系数 $K = 1.0$。封头曲面深度 $h_i = D_i/4 = 450$ mm，直边段高度 $h_s = 40$ mm（标准值），单片封头总高 $H_f = h_i + h_s = 490$ mm。
+
+封头计算厚度按 GB/T 150.3—2024 式(7-1)确定：
+
+\begin{equation}
+\delta_h = \frac{K P_c D_i}{2[\sigma]^t \phi - 0.5P_c}
+\label{eq:head-delta-2}
+\end{equation}
+
+代入计算得 $\delta_h = 4.56$ mm。封头计算厚度与筒体计算厚度 $4.57$ mm 几乎一致——这不是巧合，而是标准椭圆封头与等壁厚圆筒内压承载的力学匹配所决定的。封头的设计厚度 $\delta_{dh} = 4.56 + 3.0 = 7.56$ mm。
+
+封头名义厚度取与筒体等厚 $\delta_{nh} = 14$ mm，主要考虑：封头曲面上开设多个接管开孔后对壳体强度的削弱。封头成型后实测最小厚度不得低于 $\delta_{eh} = 10.7$ mm，此为设计有效厚度的硬性下限。
+
+封头最大薄膜应力校核：在封头顶部（曲率半径最大区域），薄膜应力 $\sigma_h \approx 67.5$ MPa $ < [\sigma]^t\phi = 158.1$ MPa，满足强度要求。
+
+\section{裙座设计}
+
+\subsection{选型与结构}
+
+立式容器采用圆筒形焊制裙座支承，裙座设计标准为 NB/T 47065.5—2018\cite{nbt47065-2018}，强度校核参照 NB/T 47041—2014\cite{nbt47041-2014}。裙座筒节外径 $D_{so} = 1828$ mm，与筒体外径相等，壁厚初选 $\delta_{ss} = 14$ mm（与壳体同厚，简化采购），筒节长度 $H_s \approx 2000$ mm。裙座上部与下封头直边段外侧以全焊透对接环缝连接，下部焊接基础环板。
+
+裙座腐蚀裕量取 $C_{2s} = 2.0$ mm（大气腐蚀 + 涂层老化环境），小于壳体腐蚀裕量。裙座不与工艺介质接触，受力以轴向压缩（自重 + 风/地震弯矩）和横向剪切为主。裙座壳体应力、基础环板弯曲应力及地脚螺栓拉应力的详细校核按 NB/T 47041—2014 执行\cite{nbt47041-2014}，属本设计范围。
+
+\subsection{基础环板设计计算}
+
+基础环板是裙座与混凝土基础之间的关键传力构件，将设备全部载荷（自重、风载荷、地震载荷）均匀扩散至基础顶面。以下按 NB/T 47041—2014 进行设计计算。
+
+\subsubsection{载荷计算}
+
+
+\textbf{风弯矩计算：} 按 NB/T 47041—2014 附录 A，风载荷沿设备高度简化为均布线载荷：
+\begin{equation}
+p_w = K_1 K_{2i} f_i q_0 D_o = 0.7 \times 1.0 \times 1.0 \times 450 \times 1.828 = 576\ \text{N/m}
+\end{equation}
+式中 $K_1=0.7$ 为圆柱体体型系数，$K_{2i}=1.0$ 为风振系数（设备高度 $H<20$ m），$f_i=1.0$ 为高度变化系数。风弯矩：
+\begin{equation}
+M_w = \frac{p_w H^2}{2} = \frac{576 \times 4.68^2}{2} \times 10^{-3} \approx 6.3\ \text{kN·m}
+\end{equation}
+
+\textbf{地震弯矩计算：} 按 NB/T 47041—2014 附录 B，设备基本自振周期估算为 $T_1 \approx 0.15$ s。抗震设防烈度 7 度（$0.10g$），第一组，Ⅱ 类场地，$T_g = 0.35$ s。$T_1 < T_g$，地震影响系数取 $\alpha = 0.08$。水平地震力：
+\begin{equation}
+F_{ek} = \alpha m_o g = 0.08 \times 7245 \times 9.81 \times 10^{-3} \approx 5.7\ \text{kN}
+\end{equation}
+地震弯矩（重心近似取设备半高 $H_{cg} \approx 2.34$ m）：
+\begin{equation}
+M_e = F_{ek} H_{cg} = 5.7 \times 2.34 \approx 13.3\ \text{kN·m}
+\end{equation}
+
+组合弯矩取 $\max(M_w,\;M_e) = 13.3$ kN·m（地震工况控制）。本设备属矮胖型立式容器，倾覆力矩量级较小，基础环板设计由压缩工况控制。
+
+\subsubsection{基础环板几何尺寸}
+
+基础环板内外径按裙座筒节外径外扩与内收确定：
+\begin{align}
+D_{bo} &= D_{so} + 250 = 1828 + 250 = 2078\ \text{mm},\quad\text{圆整取 } 2100\ \text{mm} \\
+D_{bi} &= D_{so} - 250 = 1828 - 250 = 1578\ \text{mm},\quad\text{圆整取 } 1600\ \text{mm} \\
+b      &= \frac{D_{bo} - D_{bi}}{2} = 250\ \text{mm}
+\end{align}
+
+基础环板外悬臂长度（裙座外壁至环板外缘）：$l_1 = (D_{bo} - D_{so})/2 = 136$ mm。\\
+基础环板内悬臂长度（裙座内壁至环板内缘）：$l_2 = (D_{so} - D_{bi})/2 = 114$ mm。
+
+\subsubsection{混凝土基础顶面压应力校核}
+
+基础环板底面的混凝土受压面积：
+\begin{equation}
+A_c = \frac{\pi}{4}\left(D_{bo}^2 - D_{bi}^2\right) = \frac{\pi}{4}\left(2.100^2 - 1.600^2\right) = 1.453\ \text{m}^2
+\end{equation}
+
+操作工况混凝土压应力：
+\begin{equation}
+\sigma_{c,op} = \frac{N_{op}}{A_c} = \frac{71.1 \times 10^3}{1.453 \times 10^6} = 0.049\ \text{MPa}
+\end{equation}
+
+水压试验工况混凝土压应力（取试验质量 $m_T = 9745$ kg）：
+\begin{equation}
+\sigma_{c,T} = \frac{N_T}{A_c} = \frac{95.6 \times 10^3}{1.453 \times 10^6} = 0.066\ \text{MPa}
+\end{equation}
+
+混凝土强度等级按 C25 取值，其轴心抗压强度设计值 $f_c = 11.9$ MPa，许用压应力取 $[f_c] = 11.9/3.0 \approx 4.0$ MPa（取安全系数 3.0）。$\sigma_{c,\max} = 0.066$ MPa $\ll$ 4.0 MPa，混凝土承载能力充裕。
+
+\subsubsection{基础环板厚度计算}
+
+基础环板的外悬臂段承受混凝土反力引起的弯矩。按 NB/T 47041—2014 附录 A 的悬臂板模型，单位宽度环板承受的弯矩为：
+\begin{align}
+M_{b1} &= \frac{\sigma_{c,T}\, l_1^2}{2} = \frac{0.066 \times 136^2}{2} = 610\ \text{N·mm/mm} \\
+M_{b2} &= \frac{\sigma_{c,T}\, l_2^2}{2} = \frac{0.066 \times 114^2}{2} = 429\ \text{N·mm/mm}
+\end{align}
+
+控制弯矩取 $M_{b,\max} = 610$ N·mm/mm。
+
+基础环板材料取 Q345R（与裙座同材），常温许用弯曲应力按 NB/T 47041—2014 取 $\sigma_{bs} = 0.75 R_{eL} = 0.75 \times 345 \approx 258$ MPa。
+
+计算厚度：
+\begin{equation}
+\delta_b = \sqrt{\frac{6 M_{b,\max}}{\sigma_{bs}}} = \sqrt{\frac{6 \times 610}{258}} = \sqrt{14.19} \approx 3.77\ \text{mm}
+\end{equation}
+
+此值为纯力学计算值。在工程实践中，基础环板厚度须同时满足以下附加约束：
+\begin{enumerate}
+    \item 焊接工艺可操作的最小板厚（$\ge 12$ mm）；
+    \item 与裙座筒节焊接时避免过度收缩变形的刚度要求（$\ge 16$ mm）；
+    \item 地脚螺栓孔的局部承压和孔边应力集中裕量；
+    \item 设备运输、吊装过程中的偶然冲击载荷。
+\end{enumerate}
+
+综合力学计算结果及上述工程约束，取基础环板名义厚度 $\delta_b = 20$ mm，安全系数充裕。
+
+\subsubsection{地脚螺栓选型}
+
+地脚螺栓承受倾覆力矩引起的拉力和水平剪力。M30 螺栓孔直径 $\phi 33$ mm，按孔边距 $\ge 1.5d_0 \approx 50$ mm 构造要求，螺栓中心圆直径取 $D_{bc} = D_{so} + 132 = 1828 + 132 = 1960$ mm，螺栓数量 $n = 8$（沿圆周均布）。
+
+操作工况下单个螺栓的最大拉力（按 NB/T 47041—2014 中性轴法）：
+\begin{equation}
+F_{b,\max} = \frac{4M_{\max}}{n D_{bc}} - \frac{N_{\min}}{n}
+            = \frac{4 \times 13.3 \times 10^6}{8 \times 1960} - \frac{41.6 \times 10^3}{8}
+            = 3393 - 5200 = -1807\ \text{N}
+\end{equation}
+
+计算结果为负值——设备空重产生的压紧力足以抵抗倾覆力矩引起的上拔力，螺栓在操作工况下不出现拉应力。空重工况（$N_{\min} = 41.6$ kN）下亦无上拔。水压试验工况无风/地震载荷叠加，螺栓仅承受预紧力。
+
+虽力学计算表明螺栓不受拉力，但按 NB/T 47041—2014 构造要求，对 DN1800 级立式容器，地脚螺栓直径不宜小于 M24，数量不少于 6 个。本设备取 M30 $\times$ 400（螺纹长度 $\ge 100$ mm），$n = 8$ 个（材质 Q345B 或 35CrMoA），螺栓总长 400 mm 包含锚固段（$\sim 250$ mm）和螺纹段（$\sim 150$ mm），预紧力按 $0.3\sigma_s A_s$ 控制。地脚螺栓座采用径向筋板式，筋板厚度 $\ge 14$ mm（适配 M30 预紧力），高度 $\ge 180$ mm（适配 400 mm 长螺栓的紧固操作空间），筋板与裙座筒节及基础环板之间全焊透角焊缝连接。
+
+\subsubsection{基础环板设计结论}
+\label{sec:base-ring-conclusion}
+
+表 \ref{tab:base-ring-summary} 汇总基础环板全部设计参数。
 
 \begin{table}[!htb]
   \centering
-  \caption{Q345R 钢板主要力学性能（板厚 $3 \sim 16$ mm，正火态）}
-  \label{tab:q345r-properties}
-  \small\renewcommand{\arraystretch}{1.05}
-  \setlength{\tabcolsep}{5pt}
-  \begin{tabularx}{\textwidth}{@{}>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X@{}}
+  \caption{基础环板设计参数汇总}
+  \label{tab:base-ring-summary}
+  \small\renewcommand{\arraystretch}{1.15}
+  \setlength{\tabcolsep}{8pt}
+  \begin{tabularx}{\textwidth}{@{}l l l l@{}}
     \toprule
-    \textbf{性能指标} & \textbf{符号} & \textbf{数值} \\
+    \textbf{参数项} & \textbf{符号} & \textbf{数值} & \textbf{确定依据} \\
     \midrule
-    屈服强度（室温）         & $R_{\mathrm{eL}}$ & $345$ MPa \\
-    抗拉强度                 & $R_m$           & $510 \sim 640$ MPa \\
-    断后伸长率               & $A$             & $\ge 21\%$ \\
-    $0\,\textdegree$C 冲击吸收能量 & $KV_2$          & $\ge 41$ J \\
-    弯曲试验（$180^\circ$，$d=3a$） & — & 合格 \\
+    基础环板外径              & $D_{bo}$  & $2100$ mm  & $D_{so} + 250$，圆整 \\
+    基础环板内径              & $D_{bi}$  & $1600$ mm  & $D_{so} - 250$，圆整 \\
+    环板径向宽度              & $b$       & $250$ mm   & $(D_{bo} - D_{bi})/2$ \\
+    环板外悬臂长度            & $l_1$     & $136$ mm   & $(D_{bo} - D_{so})/2$ \\
+    环板内悬臂长度            & $l_2$     & $114$ mm   & $(D_{so} - D_{bi})/2$ \\
+    混凝土受压面积            & $A_c$     & $1.453$ m² & $\pi(D_{bo}^2 - D_{bi}^2)/4$ \\
+    混凝土最大压应力          & $\sigma_{c,\max}$ & $0.066$ MPa & 水压试验工况 \\
+    混凝土许用压应力          & $[f_c]$   & $4.0$ MPa  & C25，安全系数 3.0 \\
+    环板计算厚度              & $\delta_{b,cal}$ & $3.77$ mm & $\sqrt{6M_b/\sigma_{bs}}$ \\
+    环板名义厚度              & $\delta_b$ & $20$ mm    & 刚度及构造要求控制 \\
+    地脚螺栓                  & ——       & M30 $\times$ 400，$n = 8$ & 构造要求 \\
+    螺栓中心圆直径            & $D_{bc}$  & $1960$ mm  & $D_{so} + 132$ \\
+    螺栓孔直径                & $d_0$     & $\phi 33$ mm & M30 安装间隙 \\
+    地脚螺栓座筋板厚度        & ——       & $\ge 14$ mm  & NB/T 47041—2014 \\
+    单个螺栓最大拉力          & $F_{b,\max}$ & $\le 0$（无上拔）& 计算判定 \\
+    混凝土强度等级            & ——       & C25        & GB 50010—2010 \\
     \bottomrule
   \end{tabularx}
 \end{table}
+
+\subsection{附件与开孔}
+
+裙座侧壁开设如下附件孔洞（见表 \ref{tab:skirt-openings}）：
+
+\begin{table}[!htb]
+  \centering
+  \caption{裙座开孔明细}
+  \label{tab:skirt-openings}
+  \small\renewcommand{\arraystretch}{1.2}
+  \setlength{\tabcolsep}{8pt}
+  \begin{tabularx}{\textwidth}{@{}c >{\centering\arraybackslash}X c c c@{}}
+    \toprule
+    \textbf{编号} & \textbf{用途} & \textbf{型式} & \textbf{尺寸 / mm} & \textbf{数量} \\
+    \midrule
+    V1  & 排气孔（上部） & 圆孔            & $\phi 80$        & 2（对称 $180^\circ$） \\
+    V2  & 排气孔（上部） & 长圆孔          & $80 \times 150$  & 2（与 V1 交错 $90^\circ$） \\
+    D1  & 排液孔（底部） & 圆孔            & $\phi 25$        & 2（低位布置） \\
+    A1  & 检查孔         & 圆孔            & $\phi 500$       & 1（正对 M1 人孔方位） \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+排气孔总面积 $\ge 4 \times \pi \times 40^2 \approx 2.0 \times 10^4$ mm²，满足有害气体扩散通风需求。排液孔设于裙座底板低点，确保停车排水彻底。检查孔（$\phi 500$ mm）供运行人员进入裙座内部检查基础螺栓和地脚螺栓座焊缝，其开孔尺寸参照 HG/T 21514—2024 人孔系列的下限值取整。
+
+
+裙座外表面涂装：环氧富锌底漆（$\ge 60$ μm）+ 环氧云铁中间漆（$\ge 100$ μm）+ 聚氨酯面漆（$\ge 60$ μm），按 HG/T 20584—2020\cite{hgt20584-2020} 及 HG/T 20580—2020\cite{hgt20580-2020} 附录要求执行。该涂层体系在连云港沿海大气环境中的预期有效防护年限为 $10\sim15$ 年。
+
+\section{接管与法兰}
+
+\subsection{接管选型与布置}
+
+工艺接管与仪表接管的规格、位置和功能汇总于表 \ref{tab:nozzle-specs}。接管材质为 20 号钢无缝钢管（GB/T 6479—2023）\cite{gbt6479-2023}，管壁厚度由内压圆筒公式计算后圆整为标准壁厚系列，接管计算压力与壳体相同，许用应力按 20 号钢管材在 170 ℃ 下的取值（$\approx 140$ MPa）执行。
+
+\begin{table}[!htb]
+  \centering
+  \caption{管口表（代号、DN/PN、连接标准、用途）}
+  \label{tab:nozzle-specs}
+  \small\renewcommand{\arraystretch}{1.25}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabularx}{\textwidth}{@{}c >{\centering\arraybackslash}X >{\centering\arraybackslash}X c c >{\centering\arraybackslash}X >{\centering\arraybackslash}X c c@{}}
+    \toprule
+    \textbf{代号} & \textbf{用途} & \textbf{所在部件} & \textbf{DN} & \textbf{PN} & \textbf{接管 $\phi \times \delta_t$ / mm} & \textbf{法兰标准号} & \textbf{$L_o$/$L_i$ / mm} & \textbf{备注} \\
+    \midrule
+    N1   & 冷媒进口    & 上封头顶   & 100 & 20 & $\phi 114.3 \times 6.0$ & HG/T 20592 WN100-20 RF & 200 / 0  & —— \\
+    N2   & 氮气补气口  & 上封头     & 50  & 20 & $\phi 60.3 \times 5.0$  & HG/T 20592 WN50-20 RF  & 200 / 0  & —— \\
+    N3   & 放空口      & 上封头     & 50  & 20 & $\phi 60.3 \times 5.0$  & HG/T 20592 WN50-20 RF  & 200 / 0  & —— \\
+    N4   & 压力表口    & 上封头     & 25  & 50 & $\phi 33.7 \times 4.0$  & HG/T 20592 WN25-50 RF  & 150 / 0  & 仪表接口 \\
+    N5   & 温度计口    & 上封头     & 40  & 50 & $\phi 48.3 \times 5.0$  & HG/T 20592 WN40-50 RF  & 250 / 400 & 测温元件插入至 $R/2$ \\
+    N6a  & 液位计口(上)& 筒体侧壁  & 25  & 50 & $\phi 33.7 \times 4.0$  & HG/T 20592 WN25-50 RF  & 200 / 0  & 配对使用 \\
+    N6b  & 液位计口(下)& 筒体侧壁  & 25  & 50 & $\phi 33.7 \times 4.0$  & HG/T 20592 WN25-50 RF  & 200 / 0  & 配对使用 \\
+    N7   & 压力变送器口 & 筒体侧壁  & 25  & 50 & $\phi 33.7 \times 4.0$  & HG/T 20592 WN25-50 RF  & 150 / 0  & 仪表接口 \\
+    N8   & 冷媒出口    & 下封头底   & 100 & 20 & $\phi 114.3 \times 6.0$ & HG/T 20592 WN100-20 RF & 250 / 0  & 设防涡流挡板 \\
+    N9   & 排净口      & 下封头底   & 50  & 20 & $\phi 60.3 \times 5.0$  & HG/T 20592 WN50-20 RF  & 200 / 0  & —— \\
+    M1   & 人孔        & 筒体侧壁   & 600 & 20 & $\phi 610 \times 12$     & HG/T 21515 WN600-20 RF & 300 / 0  & 回转盖式 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+N5 温度计口内伸 $400$ mm，使测温元件插入至罐体半径约 1/2 深度处，确保温度测量值代表主体介质温度而非壁面附近边界层温度。
+
+\subsection{法兰选型}
+
+所有接管法兰按 HG/T 20592～20635—2009 选型\cite{hgt20592-2009}，选用带颈对焊法兰（WN），密封面型式为突面（RF）。WN 法兰的颈部锥形过渡可降低法兰环与接管连接处的应力集中，在内压—全真空交变工况和温度波动条件下抗疲劳性能优于板式平焊法兰；法兰与接管为对接焊连接，焊缝可实施射线或超声检测，质量可控。
+
+法兰紧固件选用等长双头螺柱配六角螺母，材质 35CrMoA（调质），垫片为柔性石墨复合垫或 PTFE 包覆垫，按 HG/T 20606—2009\cite{hgt20606-2009} 和 HG/T 20613—2009\cite{hgt20613-2009} 选取。法兰压力等级按 HG/T 20615—2009 的 Class/PN 对应关系选取：Class 150 对应 PN20，Class 300 对应 PN50。设计压力 $0.80$ MPa 远低于 PN20 的公称压力基准，各法兰均按 PN20（Class 150）等级选取可有充裕承压裕量。压力表口和温度计口按 PN50（Class 300）等级选取。
+
+\subsection{人孔}
+
+在筒体侧壁开设 DN600 回转盖带颈对焊法兰人孔（M1），按 HG/T 21515—2014《钢制人孔和手孔》选取\cite{hgt21514-2014}。人孔参数：公称直径 DN600，公称压力 PN20（Class 150），法兰密封面 RF，接管尺寸 $\phi 610 \times 12$ mm（外径 $\times$ 壁厚），人孔盖为回转盖式。人孔具体标准件尺寸如下：
+
+\begin{itemize}
+    \item 法兰外径 $D_f = 815$ mm，螺栓孔中心圆直径 $D_b = 770$ mm，螺栓孔数/直径 $n \times d_0 = 20 \times \phi 26$ mm
+    \item 法兰厚度 $t_f = 36$ mm，接管长度 $L_n = 300$ mm（外伸）
+    \item 法兰盖外径 $D_g = 815$ mm，盖厚 $t_g = 32$ mm
+    \item 紧固件：等长双头螺柱 M24 $\times$ 140（$n = 20$），35CrMoA 调质
+    \item 垫片：柔性石墨复合垫 $\phi 640/\phi 610 \times 3$ mm（外径/内径 $\times$ 厚），按 HG/T 20606-2009
+    \item 人孔总质量（含法兰盖）$\approx 185$ kg
+\end{itemize}
+
+人孔开孔直径为全设备最大开孔（$d = 586$ mm），其补强设计是本章开孔补强校核的核心对象。
+
+\subsection{防涡流挡板}
+
+罐底冷媒出口（N8）处设置十字形防涡流挡板，材质 Q345R，焊接固定于出口接管上方的筒体内壁。挡板的功能为破坏排液时液面旋涡，防止气体进入出流管道导致气蚀或流量失稳。挡板形式和尺寸参考 HG/T 20580—2020 附录的推荐做法\cite{hgt20580-2020}。
+
+\section{开孔补强}
+
+\label{sec:opening}
+
+\subsection{补强方法与准则}
+
+筒体及封头上的接管开孔破坏了壳体的连续承载截面，孔边产生应力集中，峰值应力可达壳体薄膜应力的 $2\sim3$ 倍。按 GB/T 150.3—2024 第 8 章\cite{gbt150-2024}，采用等面积补强法，其判据为：在有效补强范围内，补强金属的截面积 $A_e$ 不小于因开孔而削弱的壳体金属截面积 $A$。
+
+补强有效范围：宽度方向取 $B = \max\{2d, d + 2\delta_n + 2\delta_{nt}\}$，沿壳体外壁的外侧高度 $h_1 = \min\{\sqrt{d\delta_{nt}}, \text{接管实际外伸}\}$，内侧高度 $h_2 = \min\{\sqrt{d\delta_{nt}}, \text{接管实际内伸}\}$。补强面积为以下各部分之和：壳体在补强范围内的多余厚度面积 $A_1$、接管在补强范围内的多余厚度面积 $A_2$、以及焊缝面积 $A_3$。
+
+\subsection{人孔补强计算}
+
+\textbf{已知参数}：壳体 $D_i = 1800$ mm，$\delta_n = 14$ mm，$\delta_e = 10.7$ mm，$[\sigma]^t = 186$ MPa；人孔接管 $\phi 610 \times 12$ mm（DN600），内径 $d_i = 586$ mm，接管材料 20 号钢，$[\sigma]^t_n = 140$ MPa；计算压力 $P_c = 0.80$ MPa。
+
+
+\textbf{有效补强范围}：
+\[
+B = \max\{2d,\ d + 2\delta_n + 2\delta_{nt}\} = \max\{1172,\ 638\} = 1172\ \text{mm}
+\]
+\[
+h_1 = \min\{\sqrt{d\delta_{nt}},\ 300\} = \min\{\sqrt{586 \times 12},\ 300\} = \min\{83.9,\ 300\} = 84\ \text{mm}
+\]
+$h_2 = 0$（接管无内伸）。
+
+\textbf{有效补强面积}：
+\begin{align}
+A_1 &= (B - d)(\delta_e - \delta) = (1172 - 586) \times (10.7 - 4.57) = 586 \times 6.13 = 3592\ \text{mm}^2 \\
+A_2 &= 2h_1(\delta_{et} - \delta_t)f_r = 2 \times 84 \times (9.0 - 1.74) \times 0.753 = 918\ \text{mm}^2 \\
+A_3 &\approx 64\ \text{mm}^2 \quad \text{（焊缝金属面积，焊脚高度 8 mm）} \\
+A_e &= A_1 + A_2 + A_3 = 3592 + 918 + 64 = 4574\ \text{mm}^2
+\end{align}
+
+\textbf{补强评定}：$A_e = 4574\ \text{mm}^2 > A = 2698\ \text{mm}^2$，富余量 $(4574-2698)/2698 \approx 69.5\%$，补强合格，无需增设补强圈。
+
+\subsection{补强计算结果}
+
+各主要开孔的补强计算结果汇总于表 \ref{tab:reinforcement}。DN50 及以下小口径仪表接管因开孔直径小，壳体有效厚度提供的多余金属已覆盖削弱面积，不需另行补强。
+
+\begin{table}[!htb]
+  \centering
+  \caption{开孔补强计算结果}
+  \label{tab:reinforcement}
+  \small\renewcommand{\arraystretch}{1.2}
+  \setlength{\tabcolsep}{6pt}
+  \begin{tabularx}{\textwidth}{@{}c>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X@{}}
+    \toprule
+    \textbf{序号} & \textbf{开孔位置} & \textbf{接管规格} & \textbf{$A$ / mm²} & \textbf{$A_e$ / mm²} & \textbf{补强方式} \\
+    \midrule
+    1 & 筒体   & $\phi 610 \times 12$ & 2698 & 4574 & 厚壁接管自补强 \\
+    2 & 筒体   & $\phi 114.3 \times 6$ & 468 & 1020 & 厚壁接管自补强 \\
+    3 & 上封头 & $\phi 114.3 \times 6$ & 468 & 980  & 厚壁接管自补强 \\
+    4 & 下封头 & $\phi 114.3 \times 6$ & 468 & 1020 & 厚壁接管自补强 \\
+    5 & 上/下封头 & $\phi 60.3 \times 5$ & 230 & 465 & 不需另行补强 \\
+    6 & 多位置   & $\phi 33.7 \times 4$ & 117 & 380 & 不需另行补强 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+

@@ -121,7 +121,8 @@
 \RequirePackage[svgnames]{xcolor}
 % \RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm}
 \RequirePackage{epigraph, titlesec, textcomp}
-\RequirePackage[square, comma, sort&compress, numbers]{natbib}
+\RequirePackage[numbers, comma, sort&compress]{natbib}
+\setcitestyle{super, open={[}, close={]}}
 
 % ************************** Layout and Formatting *****************************
 
@@ -373,7 +374,7 @@
     \fancyhf{}
     \renewcommand{\headrulewidth}{0pt}
     \fancyfoot{} % clear all footer fields
-    \fancyfoot[CE,CO]{\thepage} %
+    \fancyfoot[CE,CO]{\zihao{-5}\thepage} %页码小五号Times New Roman
     \renewcommand{\thepage}{\Roman{page}}
 }
 
@@ -414,9 +415,23 @@
     \fancyhead[CO]{\zihao{-5}\songti\leftmark}
     % Footers 页码为阿拉伯数字，位于页脚中间位置
     \fancyfoot{}
-    \fancyfoot[CE,CO]{\thepage}
+    \fancyfoot[CE,CO]{\zihao{-5}\thepage}
 }
 \appto\mainmatter{\pagestyle{mainmatterstyle}}
+
+%% 摘要页眉样式：双实线，无文字，页码居中
+\fancypagestyle{abstractstyle}{%
+    \fancyhf{}
+    \setlength{\headwidth}{\textwidth}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \renewcommand{\headrule}{%
+        \hrule height0.5pt width\headwidth%
+        \vskip1pt%
+        \hrule height0.5pt width\headwidth%
+        \vskip-1pt%
+    }
+    \fancyfoot[CE,CO]{\zihao{-5}\thepage}
+}
 
 % plain 去除页眉区域
 \fancypagestyle{plain}{
@@ -538,7 +553,7 @@
 
   \chapter*{\centering \Large {\abstractname}}
   \zihao{-4} \songti
-  \thispagestyle{empty}
+  \thispagestyle{abstractstyle}
 
   % \textbf{关键词：} \@cnkeywords
 }
@@ -551,7 +566,7 @@
   \setsinglecolumn
 
   \chapter*{\centering \Large {Abstract}}
-  \thispagestyle{empty}
+  \thispagestyle{abstractstyle}
 
   % \textbf{Keywords:} \@enkeywords
 }
@@ -763,6 +778,12 @@
 \DeclareRobustCommand\pkg{\textsf}
 \DeclareRobustCommand\cls{\textsf}
 \sloppy
+
+% 参考文献前不空页：backmatter 仅清页，不强制翻到奇数页
+\renewcommand{\backmatter}{%
+  \clearpage
+  \@mainmatterfalse
+}
 
 \endinput
 %% End of Class File
