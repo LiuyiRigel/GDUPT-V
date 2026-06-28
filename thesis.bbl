@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{20}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -17,6 +17,36 @@
 \newblock 第5版.
 \newblock 北京: 化学工业出版社, 2020.
 
+\bibitem[{全国锅炉压力容器标准化技术委员会}(2024)]{gbt150-2024}
+{全国锅炉压力容器标准化技术委员会}.
+\newblock GB/T 150.1～150.4—2024 压力容器\allowbreak[S].
+\newblock 北京: 中国标准出版社, 2024.
+
+\bibitem[{全国锅炉压力容器标准化技术委员会}(2023)]{gbt713-1-2023}
+{全国锅炉压力容器标准化技术委员会}.
+\newblock GB/T 713.1—2023 承压设备用钢板和钢带 第1部分：碳钢和低合金钢\allowbreak[S].
+\newblock 北京: 中国标准出版社, 2023.
+
+\bibitem[{中华人民共和国工业和信息化部}(2020)]{hgt20585-2020}
+{中华人民共和国工业和信息化部}.
+\newblock HG/T 20585—2020 钢制低温压力容器技术规范\allowbreak[S].
+\newblock 北京: 化学工业出版社, 2020.
+
+\bibitem[{中华人民共和国工业和信息化部}(2020)]{hgt20584-2020}
+{中华人民共和国工业和信息化部}.
+\newblock HG/T 20584—2020 钢制化工容器制造技术规范\allowbreak[S].
+\newblock 北京: 化学工业出版社, 2020.
+
+\bibitem[{国家能源局}(2014)]{nbt47041-2014}
+{国家能源局}.
+\newblock NB/T 47041—2014 塔式容器\allowbreak[S].
+\newblock 北京: 新华出版社, 2014.
+
+\bibitem[{中华人民共和国工业和信息化部}(2018)]{hgt21574-2018}
+{中华人民共和国工业和信息化部}.
+\newblock HG/T 21574—2018 化工设备吊耳设计选用规范\allowbreak[S].
+\newblock 北京: 化学工业出版社, 2018.
+
 \bibitem[{国家市场监督管理总局}(2019)]{gbt37284-2019}
 {国家市场监督管理总局}.
 \newblock GB/T 37284—2019 压力容器中化学介质毒性危害和爆炸危险程度分类\allowbreak[S].
@@ -26,16 +56,6 @@
 {国家市场监督管理总局}.
 \newblock TSG 21—2016 固定式压力容器安全技术监察规程\allowbreak[S].
 \newblock 北京: 新华出版社, 2016.
-
-\bibitem[{全国锅炉压力容器标准化技术委员会}(2024)]{gbt150-2024}
-{全国锅炉压力容器标准化技术委员会}.
-\newblock GB/T 150.1～150.4—2024 压力容器\allowbreak[S].
-\newblock 北京: 中国标准出版社, 2024.
-
-\bibitem[{中华人民共和国工业和信息化部}(2020)]{hgt20585-2020}
-{中华人民共和国工业和信息化部}.
-\newblock HG/T 20585—2020 钢制低温压力容器技术规范\allowbreak[S].
-\newblock 北京: 化学工业出版社, 2020.
 
 \bibitem[{国家能源局}(2015)]{nbt47013-2015}
 {国家能源局}.
@@ -51,16 +71,6 @@
 {国家能源局}.
 \newblock NB/T 47065.1～47065.5—2018 容器支座\allowbreak[S].
 \newblock 北京: 新华出版社, 2018.
-
-\bibitem[{国家能源局}(2014)]{nbt47041-2014}
-{国家能源局}.
-\newblock NB/T 47041—2014 塔式容器\allowbreak[S].
-\newblock 北京: 新华出版社, 2014.
-
-\bibitem[{中华人民共和国工业和信息化部}(2020)]{hgt20584-2020}
-{中华人民共和国工业和信息化部}.
-\newblock HG/T 20584—2020 钢制化工容器制造技术规范\allowbreak[S].
-\newblock 北京: 化学工业出版社, 2020.
 
 \bibitem[{中华人民共和国工业和信息化部}(2020)]{hgt20580-2020}
 {中华人民共和国工业和信息化部}.
@@ -91,11 +101,6 @@
 {全国钢标准化技术委员会}.
 \newblock GB/T 709—2019 热轧钢板和钢带的尺寸、外形、重量及允许偏差\allowbreak[S].
 \newblock 北京: 中国标准出版社, 2019.
-
-\bibitem[{全国锅炉压力容器标准化技术委员会}(2023)]{gbt713-1-2023}
-{全国锅炉压力容器标准化技术委员会}.
-\newblock GB/T 713.1—2023 承压设备用钢板和钢带 第1部分：碳钢和低合金钢\allowbreak[S].
-\newblock 北京: 中国标准出版社, 2023.
 
 \bibitem[{全国钢标准化技术委员会}(2018)]{gbt8163-2018}
 {全国钢标准化技术委员会}.

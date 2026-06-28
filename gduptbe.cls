@@ -433,10 +433,21 @@
     \fancyfoot[CE,CO]{\zihao{-5}\thepage}
 }
 
-% plain 去除页眉区域
-\fancypagestyle{plain}{
-    \fancyhead{}
-    \renewcommand{\headrulewidth}{0pt}
+% 章首页与正文一致的奇偶页眉
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \renewcommand{\headrule}{%
+        \hrule height0.5pt width\headwidth%
+        \vskip1pt%
+        \hrule height0.5pt width\headwidth%
+        \vskip-1pt%
+    }
+    \setlength{\headheight}{14.0pt}
+    \setlength{\headwidth}{\textwidth}
+    \fancyhead[CE]{\zihao{-5}\songti\@capstoneheader ：冷媒膨胀罐V-1810的机械设计}
+    \fancyhead[CO]{\zihao{-5}\songti\leftmark}
+    \fancyfoot[CE,CO]{\zihao{-5}\thepage}
 }
 \AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{frontmatterstyle}}}
 %\renewcommand{\headrulewidth}{1pt}% % No header rule
@@ -779,10 +790,15 @@
 \DeclareRobustCommand\cls{\textsf}
 \sloppy
 
-% 参考文献前不空页：backmatter 仅清页，不强制翻到奇数页
+% 参考文献/致谢/附录的章首页去除页眉
 \renewcommand{\backmatter}{%
   \clearpage
   \@mainmatterfalse
+  % 恢复 plain 为无页眉
+  \fancypagestyle{plain}{%
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}%
+  }%
 }
 
 \endinput

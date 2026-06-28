@@ -12,10 +12,10 @@
 
 按 GB/T 150.3—2024 式 (5-1)，内压圆筒计算厚度由中径公式给出：
 
-$$ \delta = \frac{P_c D_i}{2[\sigma]^t \phi - P_c} $$
+$$ \delta = \frac{P_c D_{\mathrm{i}}}{2[\sigma]^t \phi - P_c} $$
 
 
-式中 $P_c$——计算压力，$0.80$ MPa；$D_i$——筒体内径，$1800$ mm；$[\sigma]^t$——设计温度许用应力，$186$ MPa；$\phi$——焊接接头系数，$0.85$。
+式中 $P_c$——计算压力，$0.80$ MPa；$D_{\mathrm{i}}$——筒体内径，$1800$ mm；$[\sigma]^t$——设计温度许用应力，$186$ MPa；$\phi$——焊接接头系数，$0.85$。
 
 代入计算：
 
@@ -33,7 +33,7 @@ $$
 设计厚度：$\delta_d = \delta + C_2 = 4.57 + 3.0 = 7.57$ mm。\\
 初步名义厚度：$\delta_d + C_1 = 7.57 + 0.3 = 7.87$ mm。
 
-综合以下因素，取名义厚度 $\delta_n = 14$ mm：
+综合以下因素，取名义厚度 $\delta_{\mathrm{n}} = 14$ mm：
 \begin{enumerate}
     \item 满足全真空外压稳定性；
     \item 为开孔补强提供充足的壳体多余厚度；
@@ -49,10 +49,10 @@ $$
 操作工况下圆筒环向薄膜应力 $\sigma_\theta$ 和轴向薄膜应力 $\sigma_z$ 分别为：
 
 \begin{align}
-\sigma_\theta &= \frac{P_c (D_i + \delta_e)}{2\delta_e}
+\sigma_\theta &= \frac{P_c (D_{\mathrm{i}} + \delta_e)}{2\delta_e}
                = \frac{0.80 \times (1800 + 10.7)}{2 \times 10.7}
                = 67.7\ \text{MPa} \\
-\sigma_z     &= \frac{P_c (D_i + \delta_e)}{4\delta_e}
+\sigma_z     &= \frac{P_c (D_{\mathrm{i}} + \delta_e)}{4\delta_e}
                = \frac{\sigma_\theta}{2}
                = 33.9\ \text{MPa}
 \end{align}
@@ -72,11 +72,11 @@ $\sigma_z = 33.9$ MPa $ < 158.1$ MPa，安全系数 $n_z = 4.66$。
 
 \subsection{几何参数}
 
-外压计算长度取筒体切线长度与两端封头曲面当量直段长度之和。标准椭圆封头对外压筒体起约束作用，其当量直段长度按 $h_i/3$ 计入\cite{guocheng2020}：
+外压计算长度取筒体切线长度与两端封头曲面当量直段长度之和。标准椭圆封头对外压筒体起约束作用，其当量直段长度按 $h_{\mathrm{i}}/3$ 计入\cite{guocheng2020}：
 
 \begin{align}
 L_{cr} &= L + 2 \times \frac{h_i}{3} = 1700 + 2 \times \frac{450}{3} = 2000\ \text{mm} \\
-D_o    &= D_i + 2\delta_n = 1800 + 2 \times 14 = 1828\ \text{mm} \\
+D_o    &= D_{\mathrm{i}} + 2\delta_{\mathrm{n}} = 1800 + 2 \times 14 = 1828\ \text{mm} \\
 \frac{D_o}{\delta_e} &= \frac{1828}{10.7} = 170.8 \\
 \frac{L_{cr}}{D_o} &= \frac{2000}{1828} = 1.094
 \end{align}
@@ -106,10 +106,10 @@ D_o    &= D_i + 2\delta_n = 1800 + 2 \times 14 = 1828\ \text{mm} \\
 
 \section{封头内压强度}
 
-标准椭圆封头（$D_i/2h_i = 2$）的形状系数 $K = 1.0$。按 GB/T 150.3—2024 式 (7-1)：
+标准椭圆封头（$D_{\mathrm{i}}/2h_{\mathrm{i}} = 2$）的形状系数 $K = 1.0$。按 GB/T 150.3—2024 式 (7-1)：
 
 \begin{equation}
-\delta_h = \frac{K P_c D_i}{2[\sigma]^t \phi - 0.5P_c}
+\delta_h = \frac{K P_c D_{\mathrm{i}}}{2[\sigma]^t \phi - 0.5P_c}
 \label{eq:head-delta}
 \end{equation}
 
@@ -128,7 +128,7 @@ D_o    &= D_i + 2\delta_n = 1800 + 2 \times 14 = 1828\ \text{mm} \\
 
 封头最大薄膜应力校核：
 \[
-\sigma_h = \frac{P_c (D_i + 0.5\delta_{eh})}{2\delta_{eh}}
+\sigma_h = \frac{P_c (D_{\mathrm{i}} + 0.5\delta_{eh})}{2\delta_{eh}}
          = \frac{0.80 \times (1800 + 5.35)}{21.4}
          \approx 67.5\ \text{MPa}
 \]
@@ -138,5 +138,5 @@ $\sigma_h = 67.5$ MPa $ < [\sigma]^t \phi = 158.1$ MPa，满足强度要求。
 
 \section{强度计算结论}
 
-各项强度指标均满足 GB/T 150.3—2024 的准则要求，且安全系数充足。结构设计的主要控制因素为全真空外压稳定性和开孔补强刚度需求，而非内压强度。最终选定的名义厚度 $\delta_n = 14$ mm 同时满足内压强度、外压稳定性、开孔补强和制造刚度的多重约束，是兼顾工程经济性和安全性的最优取值。
+各项强度指标均满足 GB/T 150.3—2024 的准则要求，且安全系数充足。结构设计的主要控制因素为全真空外压稳定性和开孔补强刚度需求，而非内压强度。最终选定的名义厚度 $\delta_{\mathrm{n}} = 14$ mm 同时满足内压强度、外压稳定性、开孔补强和制造刚度的多重约束，是兼顾工程经济性和安全性的最优取值。
 
