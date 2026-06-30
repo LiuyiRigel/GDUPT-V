@@ -433,6 +433,66 @@
     \fancyfoot[CE,CO]{\zihao{-5}\thepage}
 }
 
+% 中文摘要页眉样式（保留双线，添加"摘要"页眉）
+\fancypagestyle{cnabstractstyle}{%
+    \fancyhf{}
+    \setlength{\headwidth}{\textwidth}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \renewcommand{\headrule}{%
+        \hrule height0.5pt width\headwidth%
+        \vskip1pt%
+        \hrule height0.5pt width\headwidth%
+        \vskip-1pt%
+    }
+    \fancyhead[CE,CO]{\zihao{-5}\songti 摘\Cspace 要}
+    \fancyfoot[CE,CO]{\zihao{-5}\thepage}
+}
+
+% 英文摘要页眉样式（保留双线，添加"Abstract"页眉）
+\fancypagestyle{enabstractstyle}{%
+    \fancyhf{}
+    \setlength{\headwidth}{\textwidth}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \renewcommand{\headrule}{%
+        \hrule height0.5pt width\headwidth%
+        \vskip1pt%
+        \hrule height0.5pt width\headwidth%
+        \vskip-1pt%
+    }
+    \fancyhead[CE,CO]{\zihao{-5}\songti Abstract}
+    \fancyfoot[CE,CO]{\zihao{-5}\thepage}
+}
+
+% 致谢页眉样式（保留双线，添加"致 谢"页眉）
+\fancypagestyle{ackstyle}{%
+    \fancyhf{}
+    \setlength{\headwidth}{\textwidth}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \renewcommand{\headrule}{%
+        \hrule height0.5pt width\headwidth%
+        \vskip1pt%
+        \hrule height0.5pt width\headwidth%
+        \vskip-1pt%
+    }
+    \fancyhead[CE,CO]{\zihao{-5}\songti 致\Cspace 谢}
+    \fancyfoot[CE,CO]{\zihao{-5}\thepage}
+}
+
+% 参考文献页眉样式（保留双线，添加"参考文献"页眉）
+\fancypagestyle{bibstyle}{%
+    \fancyhf{}
+    \setlength{\headwidth}{\textwidth}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \renewcommand{\headrule}{%
+        \hrule height0.5pt width\headwidth%
+        \vskip1pt%
+        \hrule height0.5pt width\headwidth%
+        \vskip-1pt%
+    }
+    \fancyhead[CE,CO]{\zihao{-5}\songti 参考文献}
+    \fancyfoot[CE,CO]{\zihao{-5}\thepage}
+}
+
 % 章首页与正文一致的奇偶页眉
 \fancypagestyle{plain}{%
     \fancyhf{}
@@ -564,7 +624,7 @@
 
   \chapter*{\centering \Large {\abstractname}}
   \zihao{-4} \songti
-  \thispagestyle{abstractstyle}
+  \thispagestyle{cnabstractstyle}
 
   % \textbf{关键词：} \@cnkeywords
 }
@@ -577,7 +637,7 @@
   \setsinglecolumn
 
   \chapter*{\centering \Large {Abstract}}
-  \thispagestyle{abstractstyle}
+  \thispagestyle{enabstractstyle}
 
   % \textbf{Keywords:} \@enkeywords
 }
@@ -591,10 +651,10 @@
 % "Acknowledgements" label at the top of the page.
 
 \newenvironment{acknowledgements}{
-\cleardoublepage
-\setsinglecolumn
-\chapter*{\centering \Large 致\Cspace 谢}
-\thispagestyle{empty}
+ \cleardoublepage
+ \setsinglecolumn
+ \chapter*{\centering \Large 致\Cspace 谢}
+ \thispagestyle{ackstyle}
 }
 
 
@@ -790,14 +850,23 @@
 \DeclareRobustCommand\cls{\textsf}
 \sloppy
 
-% 参考文献/致谢/附录的章首页去除页眉
+% 参考文献/致谢/附录的章首页应用对应页眉
 \renewcommand{\backmatter}{%
   \clearpage
   \@mainmatterfalse
-  % 恢复 plain 为无页眉
+  % 参考文献章首页：双线页眉 + "参考文献"文字
   \fancypagestyle{plain}{%
     \fancyhf{}
-    \renewcommand{\headrulewidth}{0pt}%
+    \setlength{\headwidth}{\textwidth}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \renewcommand{\headrule}{%
+        \hrule height0.5pt width\headwidth%
+        \vskip1pt%
+        \hrule height0.5pt width\headwidth%
+        \vskip-1pt%
+    }
+    \fancyhead[CE,CO]{\zihao{-5}\songti 参考文献}
+    \fancyfoot[CE,CO]{\zihao{-5}\thepage}
   }%
 }
 

@@ -54,6 +54,20 @@
 
 %%============= 附 录 =============%%
 \appendix
+% 附录章首页：双线页眉 + "附 录"
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \setlength{\headwidth}{\textwidth}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \renewcommand{\headrule}{%
+        \hrule height0.5pt width\headwidth%
+        \vskip1pt%
+        \hrule height0.5pt width\headwidth%
+        \vskip-1pt%
+    }
+    \fancyhead[CE,CO]{\zihao{-5}\songti 附\Cspace 录}
+    \fancyfoot[CE,CO]{\zihao{-5}\thepage}
+}
 \input{parts/appendix}
 
 \end{document}
