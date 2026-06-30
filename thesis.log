@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.8)  30 JUN 2026 14:21
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.8)  30 JUN 2026 14:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1334,7 +1334,7 @@ Package natbib Warning: Citation `gbt6479-2023' on page 12 undefined on input li
 
 LaTeX Warning: Text page 14 contains only floats.
 
-[14] [15]) [16] [17]
+[14] [15] [16]) [17]
 \openout2 = `parts/chap03.aux'.
 
  (./parts/chap03.tex [18
