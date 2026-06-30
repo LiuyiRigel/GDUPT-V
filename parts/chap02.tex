@@ -31,7 +31,7 @@
 
 有效厚度 $\delta_e = \delta_n - C_1 - C_2 = 14 - 0.3 - 3.0 = 10.7$ mm。该值将用于后续所有应力校核计算。
 
-操作工况下筒体环向薄膜应力的校核结果：$\sigma_\theta = P_c(D_{\mathrm{i}}+\delta_e)/(2\delta_e) = 67.7$ MPa，远低于许用限值 $[\sigma]^t\phi = 158.1$ MPa，安全系数 $n_\theta = 2.33$。轴向薄膜应力 $\sigma_z = P_c(D_{\mathrm{i}}+\delta_e)/(4\delta_e) = 33.9$ MPa，安全系数 $n_z = 4.66$。内压操作工况下筒体的强度储备充裕，壁厚由刚度条件主导。
+操作工况下筒体环向薄膜应力的校核结果：$\sigma_\theta = P_c(D_{\mathrm{i}}+\delta_e)/(2\delta_e) = 67.7$ MPa，远低于许用限值 $[\sigma]^t\phi = 158.1$ MPa。轴向薄膜应力 $\sigma_z = P_c(D_{\mathrm{i}}+\delta_e)/(4\delta_e) = 33.9$ MPa。内压操作工况下筒体的强度储备充裕，壁厚由刚度条件主导。
 
 \section{外压稳定性}
 
@@ -63,7 +63,7 @@ D_{\mathrm{o}}    &= D_{\mathrm{i}} + 2\delta_{\mathrm{n}} = 1828 \; \mathrm{mm}
 
 \subsection{稳定性评定}
 
-$[P] = 0.125 \; \mathrm{MPa} > P_{\mathrm{vac}} = 0.1013 \; \mathrm{MPa}$，筒体在全真空工况下不会发生外压失稳。外压稳定安全系数 $n_s = [P]/P_{\mathrm{vac}} = 1.23 > 1.0$，满足 GB/T 150.3—2024 要求。
+$[P] = 0.125 \; \mathrm{MPa} > P_{\mathrm{vac}} = 0.1013 \; \mathrm{MPa}$，筒体在全真空工况下不会发生外压失稳，满足 GB/T 150.3—2024 要求。
 
 \section{封头设计}
 
@@ -146,7 +146,7 @@ A_c = \frac{\pi}{4}\left(D_{bo}^2 - D_{bi}^2\right) = \frac{\pi}{4}\left(2.100^2
 \sigma_{c,T} = \frac{N_T}{A_c} = \frac{95.6 \times 10^3}{1.453 \times 10^6} = 0.066\ \text{MPa}
 \end{equation}
 
-混凝土强度等级按 C25 取值，其轴心抗压强度设计值 $f_c = 11.9$ MPa，许用压应力取 $[f_c] = 11.9/3.0 \approx 4.0$ MPa（取安全系数 3.0）。$\sigma_{c,\max} = 0.066$ MPa $\ll$ 4.0 MPa，混凝土承载能力充裕。
+混凝土强度等级按 C25 取值，其轴心抗压强度设计值 $f_c = 11.9$ MPa，许用压应力取 $[f_c] = 11.9/3.0 \approx 4.0$ MPa。$\sigma_{c,\max} = 0.066$ MPa $\ll$ 4.0 MPa，混凝土承载能力充裕。
 
 \subsubsection{基础环板厚度计算}
 
@@ -173,7 +173,7 @@ M_{b2} &= \frac{\sigma_{c,T}\, l_2^2}{2} = \frac{0.066 \times 114^2}{2} = 429\ \
     \item 设备运输、吊装过程中的偶然冲击载荷。
 \end{enumerate}
 
-综合力学计算结果及上述工程约束，取基础环板名义厚度 $\delta_b = 20$ mm，安全系数充裕。
+综合力学计算结果及上述工程约束，取基础环板名义厚度 $\delta_b = 20$ mm。
 
 \subsubsection{地脚螺栓选型}
 
@@ -212,7 +212,7 @@ F_{b,\max} = \frac{4M_{\max}}{n D_{bc}} - \frac{N_{\min}}{n}
     环板内悬臂长度            & $l_2$     & $114$ mm   & $(D_{so} - D_{bi})/2$ \\
     混凝土受压面积            & $A_c$     & $1.453$ m² & $\pi(D_{bo}^2 - D_{bi}^2)/4$ \\
     混凝土最大压应力          & $\sigma_{c,\max}$ & $0.066$ MPa & 水压试验工况 \\
-    混凝土许用压应力          & $[f_c]$   & $4.0$ MPa  & C25，安全系数 3.0 \\
+    混凝土许用压应力          & $[f_c]$   & $4.0$ MPa  & C25 \\
     环板计算厚度              & $\delta_{b,cal}$ & $3.77$ mm & $\sqrt{6M_b/\sigma_{bs}}$ \\
     环板名义厚度              & $\delta_b$ & $20$ mm    & 刚度及构造要求控制 \\
     地脚螺栓                  & ——       & M30 $\times$ 400，$n = 8$ & 构造要求 \\

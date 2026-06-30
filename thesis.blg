@@ -1,0 +1,64 @@
+This is BibTeX, Version 0.99e (TeX Live 2026)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: parts/chap01.aux
+A level-1 auxiliary file: parts/chap02.aux
+A level-1 auxiliary file: parts/chap03.aux
+A level-1 auxiliary file: parts/chap04.aux
+The style file: gbt7714-numerical.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 150 items from 100.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: bib/refs.bib
+Warning--I didn't find a database entry for "gbt6479-2023"
+You've used 20 entries,
+            6859 wiz_defined-function locations,
+            1291 strings with 11241 characters,
+and the built_in function-call counts, 72025 in all, are:
+= -- 2075
+> -- 5891
+< -- 10286
++ -- 4052
+- -- 959
+* -- 414
+:= -- 11001
+add.period$ -- 61
+call.type$ -- 20
+change.case$ -- 20
+chr.to.int$ -- 3782
+cite$ -- 20
+duplicate$ -- 382
+empty$ -- 1252
+format.name$ -- 214
+if$ -- 18494
+int.to.chr$ -- 1
+int.to.str$ -- 21
+missing$ -- 0
+newline$ -- 115
+num.names$ -- 60
+pop$ -- 782
+preamble$ -- 1
+purify$ -- 20
+quote$ -- 0
+skip$ -- 6461
+stack$ -- 0
+substring$ -- 4671
+swap$ -- 40
+text.length$ -- 210
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 216
+warning$ -- 0
+while$ -- 249
+width$ -- 0
+write$ -- 255
+(There was 1 warning)
